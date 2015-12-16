@@ -1,0 +1,16 @@
+<h2>List of vegan restaurants</h2>
+<div class="listbox">
+	<div class="listitem" 
+		ng-repeat="restaurant in restaurants" 
+		ng-click="select(restaurant)">
+	  <div class="listcontent">
+	  	<div class="listhead">{{ restaurant.name }}</div>
+	  	<div class="listbody">{{ restaurant.note }}</div>
+	  	<div class="listbody small">{{ restaurant.address }}</div>
+	  	<div class="listbody small" ng-if="restaurant.phone">{{ restaurant.phone }}</div>
+
+	  </div>
+	  <div class="listimg"><img src="" alt="img" /></div>
+	</div>
+
+</div>
