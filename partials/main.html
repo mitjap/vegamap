@@ -1,15 +1,26 @@
-<ui-gmap-google-map center="center" zoom="zoom" options="mapOptions">
-	<ui-gmap-markers models="data"
-					 coords="'location'"
-					 options="'options'"
-					 doCluster="true"
-					 fit="fit">
-	
-	</ui-gmap-markers>
-	<ui-gmap-circle center='position'
-                radius='position.accuracy'
-                clickable='false'
-                draggable='false'
-                visible='true'>
-	</ui-gmap-circle>
+<div id="sidebar" ui-view="sidebar"></div>
+<div id="overlay" ui-view="overlay"></div>
+
+<ui-gmap-google-map
+  center="state.center"
+  zoom="state.zoom"
+  options="mapOptions"
+  control="state.gmap">
+  
+  <ui-gmap-markers
+    models="data"
+    coords="'location'"
+    options="'options'"
+    doCluster="true"
+    fit="fit"
+    pan="pan">
+  </ui-gmap-markers>
+  
+  <ui-gmap-circle
+    center='position'
+      radius='position.accuracy'
+      clickable='false'
+      draggable='false'
+      visible='true'>
+  </ui-gmap-circle>
 </ui-gmap-google-map>
