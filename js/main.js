@@ -29,6 +29,11 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
         controller: 'RestaurantController',
         templateUrl: 'partials/restaurant.html'
       }
+    },
+    resolve: {
+      restaurant: function($stateParams, dataProvider) {
+        return dataProvider.findBySlug($stateParams.restaurantSlug);
+      }
     }
   });
 })
@@ -39,28 +44,44 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
   });
 })
 .controller('ListController', function($scope, $state, dataProvider, mapState) {
-  $scope.restaurants = dataProvider.restaurants;
+  dataProvider.getRestaurants().then(function(data) {
+    $scope.restaurants = data;
+  });
 
   $scope.select = function(restaurant) {
     $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
   }
 })
-.controller('RestaurantController', function($scope, $stateParams, dataProvider, mapState) {
-  var restaurant = dataProvider.findBySlug($stateParams.restaurantSlug);
-
-  $scope.restaurant = restaurant;
-  var wathcer = $scope.$watch(function() { return mapState.gmap.getGMap; }, function(maps) {
-    if (mapState.gmap.getGMap) {
-      mapState.gmap.getGMap().panTo({
+.controller('RestaurantController', function($scope, $state, $stateParams, restaurant, mapState) {
+  if (_.isUndefined(restaurant)) {
+    $state.go('map.list');
+    return;
+  }
+  var centerOnRestaurant = function(restaurant, gmap) {
+    if (gmap) {
+      gmap().panTo({
         lat: restaurant.location.latitude,
         lng: restaurant.location.longitude
       });
       mapState.zoom = 17;
-      wathcer();
+      return true;
+    } else {
+      return false;
     }
-  });
+  };
+  
+
+  $scope.restaurant = restaurant;
+  
+  if (!centerOnRestaurant(restaurant, mapState.gmap.getGMap)) {
+    var wathcer = $scope.$watch(() => { return mapState.gmap.getGMap; }, function(maps) {
+      if (centerOnRestaurant(restaurant, maps)) {
+        wathcer();
+      }
+    }); 
+  }
 })
-.controller('MapController', function($scope, $state, dataProvider, mapState,
+.controller('MapController', function($scope, $state, $q, dataProvider, mapState,
     uiGmapGoogleMapApi, geolocation) {
   $scope.state = mapState;
   $scope.fit = true;
@@ -80,8 +101,10 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
   
   $scope.data = [];
   
-  uiGmapGoogleMapApi.then(function(maps) {
-    $scope.data = dataProvider.restaurants;
+  //$q.all(dataProvider.getRestaurants(), uiGmapGoogleMapApi)
+  dataProvider.getRestaurants()
+  .then(function(restaurants) {
+    $scope.data = restaurants;
   });
   
   geolocation.getLocation()
@@ -116,7 +139,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
   
   return state;
 })
-.service('dataProvider', function() {
+.service('dataProvider', function($q) {
   var restaurants = [
     {
       id: 0,
@@ -169,13 +192,19 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       note: "veganska hrana in pijača",
     },
   ];
-
+  
+  var getRestaurants = function() {
+    return $q.resolve(restaurants);
+  };
+  
   var findBySlug = function(slug) {
-    return _.find(restaurants, _.matchesProperty('slug', slug));
+    return getRestaurants().then(function(data) {
+      return _.find(data, _.matchesProperty('slug', slug));
+    });
   };
   
   return {
-    restaurants: restaurants,
+    getRestaurants: getRestaurants,
     findBySlug: findBySlug
   }
 });
