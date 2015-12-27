@@ -60,7 +60,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
     }
   });
 })
-.controller('MapController', function($scope, dataProvider, mapState,
+.controller('MapController', function($scope, $state, dataProvider, mapState,
     uiGmapGoogleMapApi, geolocation) {
   $scope.state = mapState;
   $scope.fit = true;
@@ -72,6 +72,10 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
         { visibility: "off" }
       ]
     }]
+  };
+
+  $scope.markerClick = function(marker, event, restaurant) {
+    $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
   };
   
   $scope.data = [];
