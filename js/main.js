@@ -1,4 +1,6 @@
-angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
+angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', 'geolocation'])
+
+// config routes
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/map/list');
 
@@ -29,13 +31,15 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
         controller: 'RestaurantController',
         templateUrl: 'partials/restaurant.html'
       }
-    },
-    resolve: {
-      restaurant: function($stateParams, dataProvider) {
-        return dataProvider.findBySlug($stateParams.restaurantSlug);
-      }
     }
   });
+})
+
+/// config themes
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('pink')
+    .accentPalette('orange');
 })
 .run(function($rootScope, $location, $window){
   $rootScope.$on('$stateChangeSuccess', function(event) {
@@ -44,44 +48,28 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
   });
 })
 .controller('ListController', function($scope, $state, dataProvider, mapState) {
-  dataProvider.getRestaurants().then(function(data) {
-    $scope.restaurants = data;
-  });
+  $scope.restaurants = dataProvider.restaurants;
 
   $scope.select = function(restaurant) {
     $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
-  }
+  };
 })
-.controller('RestaurantController', function($scope, $state, $stateParams, restaurant, mapState) {
-  if (_.isUndefined(restaurant)) {
-    $state.go('map.list');
-    return;
-  }
-  var centerOnRestaurant = function(restaurant, gmap) {
-    if (gmap) {
-      gmap().panTo({
+.controller('RestaurantController', function($scope, $stateParams, dataProvider, mapState) {
+  var restaurant = dataProvider.findBySlug($stateParams.restaurantSlug);
+
+  $scope.restaurant = restaurant;
+  var wathcer = $scope.$watch(function() { return mapState.gmap.getGMap; }, function(maps) {
+    if (mapState.gmap.getGMap) {
+      mapState.gmap.getGMap().panTo({
         lat: restaurant.location.latitude,
         lng: restaurant.location.longitude
       });
       mapState.zoom = 17;
-      return true;
-    } else {
-      return false;
+      wathcer();
     }
-  };
-  
-
-  $scope.restaurant = restaurant;
-  
-  if (!centerOnRestaurant(restaurant, mapState.gmap.getGMap)) {
-    var wathcer = $scope.$watch(() => { return mapState.gmap.getGMap; }, function(maps) {
-      if (centerOnRestaurant(restaurant, maps)) {
-        wathcer();
-      }
-    }); 
-  }
+  });
 })
-.controller('MapController', function($scope, $state, $q, dataProvider, mapState,
+.controller('MapController', function($scope, $mdToast, dataProvider, mapState,
     uiGmapGoogleMapApi, geolocation) {
   $scope.state = mapState;
   $scope.fit = true;
@@ -94,22 +82,17 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       ]
     }]
   };
-
-  $scope.markerClick = function(marker, event, restaurant) {
-    $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
-  };
   
   $scope.data = [];
   
-  //$q.all(dataProvider.getRestaurants(), uiGmapGoogleMapApi)
-  dataProvider.getRestaurants()
-  .then(function(restaurants) {
-    $scope.data = restaurants;
+  uiGmapGoogleMapApi.then(function(maps) {
+    $scope.data = dataProvider.restaurants;
   });
   
   geolocation.getLocation()
   .then(function(data) {
     console.log('location known', data);
+    $mdToast.show($mdToast.simple().textContent('Awesome! We got your location.'));
     $scope.position = {
       longitude: data.coords.longitude,
       latitude: data.coords.latitude,
@@ -139,7 +122,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
   
   return state;
 })
-.service('dataProvider', function($q) {
+.service('dataProvider', function() {
   var restaurants = [
     {
       id: 0,
@@ -166,7 +149,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       slug: "Loving_Hut_-_Ljubljana_Vic",
       name: "Loving Hut - Ljubljana Vič",
       address: "Koprska ulica 72, Ljubljana",
-      location: { latitude: 46.036941, longitude: 14.482071 },
+      location: { latitude: 46.057449, longitude: 14.508750 },
       type: 0,
       phone: "070631500",
       note: "veganska hrana in pijača",
@@ -176,7 +159,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       slug: "Loving_Hut_-_Ljubljana_Center",
       name: "Loving Hut - Ljubljana Center",
       address: "Trg osvobodilne fronte 14, Ljubljana",
-      location: { latitude: 46.057449, longitude: 14.508750 },
+      location: { latitude: 46.036941, longitude: 14.482071 },
       type: 0,
       phone: "068126970",
       note: "veganska hrana in pijača",
@@ -192,19 +175,13 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       note: "veganska hrana in pijača",
     },
   ];
-  
-  var getRestaurants = function() {
-    return $q.resolve(restaurants);
-  };
-  
+
   var findBySlug = function(slug) {
-    return getRestaurants().then(function(data) {
-      return _.find(data, _.matchesProperty('slug', slug));
-    });
+    return _.find(restaurants, _.matchesProperty('slug', slug));
   };
   
   return {
-    getRestaurants: getRestaurants,
+    restaurants: restaurants,
     findBySlug: findBySlug
-  }
+  };
 });
