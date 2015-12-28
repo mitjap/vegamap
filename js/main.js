@@ -48,9 +48,10 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
       .accentPalette('orange');
 
   $mdIconProvider
-      .icon('phone', 'svg/phone.svg')
-      .icon('place', 'svg/place.svg')
-      .icon('email', 'svg/email.svg');
+      .icon('phone',      'svg/phone.svg')
+      .icon('place',      'svg/place.svg')
+      .icon('email',      'svg/email.svg')
+      .icon('arrow-back', 'svg/arrow-back.svg');
 })
 .run(function($rootScope, $location, $window){
   $rootScope.$on('$stateChangeSuccess', function(event) {
