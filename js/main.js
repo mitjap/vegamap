@@ -2,7 +2,7 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
 
 // config routes
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/map/list');
+  $urlRouterProvider.otherwise('/map');
 
   $stateProvider
   .state('map', {
@@ -16,7 +16,7 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
     }
   })
   .state('map.list', {
-    url: '/list',
+    url: '',
     views: {
       overlay: {
         controller: 'ListController',
