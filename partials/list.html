@@ -1,19 +1,16 @@
-<!--h2>List of vegan restaurants</h2-->
-<md-toolbar>
-  <h2 class="md-toolbar-tools">
-    <span>List of vegan restaurants</span>
-  </h2>
-</md-toolbar>
-<md-content style="max-height: 500px">
-  <md-list>
-    <md-list-item class="md-3-line" ng-repeat="restaurant in restaurants" ng-click="select(restaurant)">
-      <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="photo" />
-      <div class="md-list-item-text" layout="column">
-        <h3>{{ restaurant.name }}</h3>
-        <p>{{ restaurant.note }}</p>
-        <p>{{ restaurant.address }}</p>
-      </div>
-      <md-divider inset></md-divider>
-    </md-list-item>
-  </md-list>
-</md-content>
+<h2>List of vegan restaurants</h2>
+<div class="listbox">
+	<div class="listitem" 
+		ng-repeat="restaurant in restaurants" 
+		ng-click="select(restaurant)">
+	  <div class="listcontent">
+	  	<div class="listhead">{{ restaurant.name }}</div>
+	  	<div class="listbody">{{ restaurant.note }}</div>
+	  	<div class="listbody small">{{ restaurant.address }}</div>
+	  	<div class="listbody small" ng-if="restaurant.phone">{{ restaurant.phone }}</div>
+
+	  </div>
+	  <div class="listimg"><img src="" alt="img" /></div>
+	</div>
+
+</div>
