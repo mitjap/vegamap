@@ -1,4 +1,6 @@
-angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
+angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', 'geolocation'])
+
+// config routes
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/map/list');
 
@@ -36,6 +38,19 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       }
     }
   });
+})
+
+/// config themes
+.config(function($mdThemingProvider, $mdIconProvider) {
+  $mdThemingProvider
+      .theme('default')
+      .primaryPalette('pink')
+      .accentPalette('orange');
+
+  $mdIconProvider
+      .icon('phone', 'svg/phone.svg')
+      .icon('place', 'svg/place.svg')
+      .icon('email', 'svg/email.svg');
 })
 .run(function($rootScope, $location, $window){
   $rootScope.$on('$stateChangeSuccess', function(event) {
@@ -81,7 +96,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
     }); 
   }
 })
-.controller('MapController', function($scope, $state, $q, dataProvider, mapState,
+.controller('MapController', function($scope, $state, $q, $mdToast, dataProvider, mapState,
     uiGmapGoogleMapApi, geolocation) {
   $scope.state = mapState;
   $scope.fit = true;
@@ -109,7 +124,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
   
   geolocation.getLocation()
   .then(function(data) {
-    console.log('location known', data);
+    $mdToast.show($mdToast.simple().textContent('Awesome! We got your location.'));
     $scope.position = {
       longitude: data.coords.longitude,
       latitude: data.coords.latitude,
@@ -146,6 +161,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       slug: "Ajdovo_Zrno",
       name: "Ajdovo Zrno",
       address: "Trubarjeva 7, Ljubljana",
+      email: "some@email.com",
       location: { latitude: 46.052012, longitude: 14.507220 },
       type: 1,
       phone: "040832446",
@@ -156,6 +172,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       slug: "Bobencek",
       name: "Bobenček",
       address: "Trubarjeva 17, Ljubljana",
+      email: "some@email.com",
       location: { latitude: 46.052409, longitude: 14.508389 },
       type: 0,
       phone: "014321283",
@@ -166,6 +183,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       slug: "Loving_Hut_-_Ljubljana_Vic",
       name: "Loving Hut - Ljubljana Vič",
       address: "Koprska ulica 72, Ljubljana",
+      email: "some@email.com",
       location: { latitude: 46.036941, longitude: 14.482071 },
       type: 0,
       phone: "070631500",
@@ -176,6 +194,7 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       slug: "Loving_Hut_-_Ljubljana_Center",
       name: "Loving Hut - Ljubljana Center",
       address: "Trg osvobodilne fronte 14, Ljubljana",
+      email: "some@email.com",
       location: { latitude: 46.057449, longitude: 14.508750 },
       type: 0,
       phone: "068126970",
@@ -186,11 +205,12 @@ angular.module('vegamap-app', ['ui.router', 'uiGmapgoogle-maps', 'geolocation'])
       slug: "Loving_Hut_-_Ljubljana_Siska",
       name: "Loving Hut - Ljubljana Šiška",
       address: "Devova ulica 5, Ljubljana",
+      email: "some@email.com",
       location: { latitude: 46.086281, longitude: 14.477469 },
       type: 0,
       phone: "068130463",
       note: "veganska hrana in pijača",
-    },
+    }
   ];
   
   var getRestaurants = function() {

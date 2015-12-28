@@ -1,8 +1,33 @@
-<h2>{{ restaurant.name }}</h2>
-<hr>
-<p>{{ restaurant.note }}</p>
-<hr>
-<p>Some additional info, address, phone, webpage</p>
-<p>Streetview image showing restaurant</p>
-<p>short direction, distance and time to reach</p>
-<p>Maybe some reviews</p>
+<!--h2>List of vegan restaurants</h2-->
+<md-toolbar>
+  <h2 class="md-toolbar-tools">
+    <span>{{ restaurant.name }}</span>
+  </h2>
+</md-toolbar>
+<md-content>
+  <h3>{{ restaurant.note }}</h3>
+  <md-list>
+     <md-subheader class="md-no-sticky">Info</md-subheader>
+      <md-list-item class="md-2-line">
+        <md-icon md-svg-icon="phone" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text" ng-class="md-offset">
+          <h3><a href="tel:{{ restaurant.phone }}">{{ restaurant.phone }}</a></h3>
+          <p>Mobile</p>
+        </div>
+      </md-list-item>
+      <md-list-item class="md-2-line">
+        <md-icon md-svg-icon="place" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3> {{ restaurant.address }} </h3>
+          <p>Address</p>
+        </div>
+      </md-list-item>
+      <md-list-item class="md-2-line">
+        <md-icon md-svg-icon="email" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3> {{ restaurant.email }} </h3>
+          <p>Email</p>
+        </div>
+      </md-list-item>
+    </md-list>
+</md-content>

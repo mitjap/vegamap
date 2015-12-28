@@ -1,6 +1,5 @@
-<div id="sidebar" ui-view="sidebar"></div>
-<div id="overlay" ui-view="overlay"></div>
-
+<div layout="column" ui-view="sidebar"></div>
+<div layout="column" ui-view="overlay"></div>
 <ui-gmap-google-map
   center="state.center"
   zoom="state.zoom"
@@ -19,9 +18,9 @@
   
   <ui-gmap-circle
     center='position'
-      radius='position.accuracy'
-      clickable='false'
-      draggable='false'
-      visible='true'>
+    radius='position.accuracy'
+    clickable='false'
+    draggable='false'
+    visible='true'>
   </ui-gmap-circle>
 </ui-gmap-google-map>
