@@ -13,6 +13,9 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
         controller: 'MapController',
         templateUrl: 'partials/main.html'
       }
+    },
+    resolve: {
+      uiGmapGoogleMapApi: "uiGmapGoogleMapApi"
     }
   })
   .state('map.list', {
@@ -68,11 +71,16 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
     $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
   }
 })
-.controller('RestaurantController', function($scope, $state, $stateParams, restaurant, mapState) {
+.controller('RestaurantController', function($scope, $state, $stateParams, restaurant, mapState, userData) {
   if (_.isUndefined(restaurant)) {
     $state.go('map.list');
     return;
   }
+  
+  
+  $scope.restaurant = restaurant;
+  
+  
   var centerOnRestaurant = function(restaurant, gmap) {
     if (gmap) {
       gmap().panTo({
@@ -86,9 +94,6 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
     }
   };
   
-
-  $scope.restaurant = restaurant;
-  
   if (!centerOnRestaurant(restaurant, mapState.gmap.getGMap)) {
     var wathcer = $scope.$watch(() => { return mapState.gmap.getGMap; }, function(maps) {
       if (centerOnRestaurant(restaurant, maps)) {
@@ -96,9 +101,28 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
       }
     }); 
   }
+  
+  /*
+  if (userData.location.accuracy) {
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+      origins: [{
+        lat: userData.location.latitude,
+        lng: userData.location.longitude
+      }],
+      destinations: [{
+        lat: restaurant.location.latitude,
+        lng: restaurant.location.longitude
+      }],
+      travelMode: google.maps.TravelMode.DRIVING,
+    }, function(response, status) {
+      console.log('data', response);
+    });
+  }
+  */
 })
-.controller('MapController', function($scope, $state, $q, $mdToast, dataProvider, mapState,
-    uiGmapGoogleMapApi, geolocation) {
+.controller('MapController', function($scope, $state, $q, $mdToast, dataProvider,
+    mapState, userData, geolocation) {
   $scope.state = mapState;
   $scope.fit = true;
   $scope.mapOptions = {
@@ -116,32 +140,32 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
   };
   
   $scope.data = [];
+  $scope.location = userData.location;
   
-  //$q.all(dataProvider.getRestaurants(), uiGmapGoogleMapApi)
+  //$q.all(dataProvider.getRestaurants())
   dataProvider.getRestaurants()
   .then(function(restaurants) {
     $scope.data = restaurants;
   });
   
-  geolocation.getLocation()
-  .then(function(data) {
-    $mdToast.show($mdToast.simple().textContent('Awesome! We got your location.'));
-    $scope.position = {
-      longitude: data.coords.longitude,
-      latitude: data.coords.latitude,
-      accuracy: data.coords.accuracy
-    };
-    
-    $scope.fit = false;
-    mapState.center = {
-      longitude: data.coords.longitude,
-      latitude: data.coords.latitude
-    };
-    $scope.zoom = 18;
-  })
-  .catch(function() {
-    // TODO: do something
-  });
+  if (!userData.location.accuracy) {
+    geolocation.getLocation()
+    .then(function(data) {
+
+      userData.location.latitude = data.coords.latitude;
+      userData.location.longitude = data.coords.longitude;
+      userData.location.accuracy = data.coords.accuracy;
+      
+      $mdToast.show($mdToast.simple().textContent('Awesome! We got your location.'));
+
+      $scope.fit = false;
+      mapState.center = angular.copy(userData.location);
+      $scope.zoom = 18;
+    })
+    .catch(function() {
+      // TODO: do something
+    });
+  }
 })
 .service('mapState', function() {
   var state = {
@@ -155,71 +179,25 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
   
   return state;
 })
-.service('dataProvider', function($q) {
-  var restaurants = [
-    {
-      id: 0,
-      slug: "Ajdovo_Zrno",
-      name: "Ajdovo Zrno",
-      address: "Trubarjeva 7, Ljubljana",
-      email: "some@email.com",
-      location: { latitude: 46.052012, longitude: 14.507220 },
-      type: 1,
-      phone: "040832446",
-      note: "veganska in presna ponudba",
-    },
-    {
-      id: 1,
-      slug: "Bobencek",
-      name: "Bobenček",
-      address: "Trubarjeva 17, Ljubljana",
-      email: "some@email.com",
-      location: { latitude: 46.052409, longitude: 14.508389 },
-      type: 0,
-      phone: "014321283",
-      note: "veganske jedi, smoothiji, rastlinsko mleko, presne torte",
-    },
-    {
-      id: 2,
-      slug: "Loving_Hut_-_Ljubljana_Vic",
-      name: "Loving Hut - Ljubljana Vič",
-      address: "Koprska ulica 72, Ljubljana",
-      email: "some@email.com",
-      location: { latitude: 46.036941, longitude: 14.482071 },
-      type: 0,
-      phone: "070631500",
-      note: "veganska hrana in pijača",
-    },
-    {
-      id: 3,
-      slug: "Loving_Hut_-_Ljubljana_Center",
-      name: "Loving Hut - Ljubljana Center",
-      address: "Trg osvobodilne fronte 14, Ljubljana",
-      email: "some@email.com",
-      location: { latitude: 46.057449, longitude: 14.508750 },
-      type: 0,
-      phone: "068126970",
-      note: "veganska hrana in pijača",
-    },
-    {
-      id: 4,
-      slug: "Loving_Hut_-_Ljubljana_Siska",
-      name: "Loving Hut - Ljubljana Šiška",
-      address: "Devova ulica 5, Ljubljana",
-      email: "some@email.com",
-      location: { latitude: 46.086281, longitude: 14.477469 },
-      type: 0,
-      phone: "068130463",
-      note: "veganska hrana in pijača",
-    }
-  ];
+.service('userData', function() {
+  var data = {
+    location: {}
+  };
+  
+  return data;
+})
+.service('dataProvider', function($http, $q) {
+  var dataPromise = $http.get('data/restaurants.json');
   
   var getRestaurants = function() {
-    return $q.resolve(restaurants);
+    return dataPromise.then(function(response) {
+      return response.data.restaurants;
+    });
   };
   
   var findBySlug = function(slug) {
-    return getRestaurants().then(function(data) {
+    return getRestaurants()
+    .then(function(data) {
       return _.find(data, _.matchesProperty('slug', slug));
     });
   };
