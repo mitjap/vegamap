@@ -1,0 +1,32 @@
+<section layout="row" flex>
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <div layout="column" ui-view="sidebar"></div>
+    <div layout="column" ui-view="overlay"></div>
+  </md-sidenav>
+  <md-content flex layout="column" layout-align="stretch">
+    <ui-gmap-google-map
+      center="state.center"
+      zoom="state.zoom"
+      options="mapOptions"
+      control="state.gmap">
+      
+      <ui-gmap-markers
+        models="data"
+        click="markerClick"
+        coords="'location'"
+        options="'options'"
+        doCluster="true"
+        fit="fit"
+        pan="pan">
+      </ui-gmap-markers>
+      
+      <ui-gmap-circle
+        center='location'
+        radius='location.accuracy'
+        clickable='false'
+        draggable='false'
+        visible='true'>
+      </ui-gmap-circle>
+    </ui-gmap-google-map>
+  </md-content>
+</section>

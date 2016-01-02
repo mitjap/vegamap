@@ -14,7 +14,7 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
     views: {
       map: {
         controller: 'MapController',
-        templateUrl: 'partials/main.html'
+        templateUrl: 'partials/map.html'
       }
     },
     resolve: {

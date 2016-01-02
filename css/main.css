@@ -34,32 +34,16 @@ html, body
   user-select: none;
 }
 
-body {
-  display: flex;
-  flex-direction: row;
+.fullHeight {
+  height: 100%;
 }
 
-#container {
+
+.angular-google-map,
+.angular-google-map-container {
+  display: flex;
   flex: 1;
-  height: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: stretch;
 }
-
-#content,
-ui-gmap-google-map ,
-.angular-google-map {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* align items in Cross Axis */
-  align-content: stretch; /* Extra space in Cross Axis */
-  flex: 1; /* same as flex: 1 1 auto; */
-}
-
-.angular-google-map-container { flex: 1 }
-
 
 .label {
   height: 2em;
