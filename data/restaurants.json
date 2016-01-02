@@ -1,0 +1,59 @@
+{ 
+  "restaurants": [
+    {
+      "id": 0,
+      "slug": "Ajdovo_Zrno",
+      "name": "Ajdovo Zrno",
+      "address": "Trubarjeva 7, Ljubljana",
+      "email": "some@email.com",
+      "location": { "latitude": 46.052012, "longitude": 14.507220 },
+      "type": 1,
+      "phone": "040832446",
+      "note": "veganska in presna ponudba"
+    },
+    {
+      "id": 1,
+      "slug": "Bobencek",
+      "name": "Bobenček",
+      "address": "Trubarjeva 17, Ljubljana",
+      "email": "some@email.com",
+      "location": { "latitude": 46.052409, "longitude": 14.508389 },
+      "type": 0,
+      "phone": "014321283",
+      "note": "veganske jedi, smoothiji, rastlinsko mleko, presne torte"
+    },
+    {
+      "id": 2,
+      "slug": "Loving_Hut_-_Ljubljana_Vic",
+      "name": "Loving Hut - Ljubljana Vič",
+      "address": "Koprska ulica 72, Ljubljana",
+      "email": "some@email.com",
+      "location": { "latitude": 46.036941, "longitude": 14.482071 },
+      "type": 0,
+      "phone": "070631500",
+      "note": "veganska hrana in pijača"
+    },
+    {
+      "id": 3,
+      "slug": "Loving_Hut_-_Ljubljana_Center",
+      "name": "Loving Hut - Ljubljana Center",
+      "address": "Trg osvobodilne fronte 14, Ljubljana",
+      "email": "some@email.com",
+      "location": { "latitude": 46.057449, "longitude": 14.508750 },
+      "type": 0,
+      "phone": "068126970",
+      "note": "veganska hrana in pijača"
+    },
+    {
+      "id": 4,
+      "slug": "Loving_Hut_-_Ljubljana_Siska",
+      "name": "Loving Hut - Ljubljana Šiška",
+      "address": "Devova ulica 5, Ljubljana",
+      "email": "some@email.com",
+      "location": { "latitude": 46.086281, "longitude": 14.477469 },
+      "type": 0,
+      "phone": "068130463",
+      "note": "veganska hrana in pijača"
+    }
+  ]
+}
