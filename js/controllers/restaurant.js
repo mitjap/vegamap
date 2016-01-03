@@ -2,7 +2,7 @@
 /* global angular */
 
 angular.module('vegamap-app')
-.controller('RestaurantController', function($scope, $state, $stateParams, restaurant, mapState, userData) {
+.controller('RestaurantController', function($scope, $q, $state, $stateParams, restaurant, mapState, userData) {
   if (_.isUndefined(restaurant)) {
     $state.go('map.list');
     return;
@@ -33,9 +33,37 @@ angular.module('vegamap-app')
     }); 
   }
   
+  $scope.getEta = function(location) {
+    var defered = $q.defer();
+  
+    // TODO: check if userData.location is actually set!!!
+    
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+      origins: [{
+        lat: userData.location.latitude,
+        lng: userData.location.longitude
+      }],
+      destinations: [{
+        lat: location.latitude,
+        lng: location.longitude
+      }],
+      travelMode: google.maps.TravelMode.DRIVING,
+    }, function(response, status) {
+      console.log('data', response.rows[0].elements[0]);
+      defered.resolve(response.rows[0].elements[0]);
+    });
+    
+    defered.promise.then(function() {
+      console.log('after', defered.promise);
+      console.log('after', defered.promise.$$v);
+    })
+    
+    return defered.promise;
+  }
+  
   /*
   if (userData.location.accuracy) {
-    var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix({
       origins: [{
         lat: userData.location.latitude,

@@ -2,7 +2,9 @@
 <md-toolbar>
   <h2 class="md-toolbar-tools">
     <md-button ui-sref="map.list" class="md-icon-button" aria-label="Return">
-      <md-icon md-svg-icon="arrow-back"></md-icon>
+       <md-icon class="material-icons step md-avatar-icon">
+        arrow_back
+      </md-icon>
     </md-button>
     <span>{{ restaurant.name }}</span>
   </h2>
@@ -12,25 +14,42 @@
   <md-list>
      <md-subheader class="md-no-sticky">Info</md-subheader>
       <md-list-item class="md-2-line">
-        <md-icon md-svg-icon="phone" class="md-avatar-icon"></md-icon>
+         <md-icon class="material-icons step md-avatar-icon">
+          phone
+        </md-icon>
         <div class="md-list-item-text" ng-class="md-offset">
-          <h3><a href="tel:{{ restaurant.phone }}">{{ restaurant.phone }}</a></h3>
+          <h3>{{ restaurant.phone }}</h3>
           <p>Mobile</p>
         </div>
+        <md-icon ng-click="($event)" aria-label="Navigate" class="md-secondary md-hue-3">call</md-icon>
       </md-list-item>
       <md-list-item class="md-2-line">
-        <md-icon md-svg-icon="place" class="md-avatar-icon"></md-icon>
+         <md-icon class="material-icons step md-avatar-icon">
+          place
+        </md-icon>
         <div class="md-list-item-text" ng-class="md-offset">
-          <h3> {{ restaurant.address }} </h3>
+          <h3>{{ restaurant.address }}</h3>
           <p>Address</p>
         </div>
       </md-list-item>
       <md-list-item class="md-2-line">
-        <md-icon md-svg-icon="email" class="md-avatar-icon"></md-icon>
+         <md-icon class="material-icons step md-avatar-icon">
+          email
+        </md-icon>
         <div class="md-list-item-text" ng-class="md-offset">
-          <h3> {{ restaurant.email }} </h3>
+          <h3>{{ restaurant.email }}</h3>
           <p>Email</p>
         </div>
+      </md-list-item>
+      <md-list-item class="md-2-line">
+         <md-icon class="material-icons step md-avatar-icon">
+          access_time
+        </md-icon>
+        <div class="md-list-item-text" ng-class="md-offset" ng-init="eta = getEta(restaurant.location)">
+          <h3>{{ eta.$$state.value.duration.text }} / {{ eta.$$state.value.distance.text }}</h3>
+          <p>ETA</p>
+        </div>
+        <md-icon ng-click="($event)" aria-label="Navigate" class="md-secondary md-hue-3">directions</md-icon>
       </md-list-item>
     </md-list>
 </md-content>

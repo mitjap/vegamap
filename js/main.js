@@ -47,17 +47,11 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
 })
 
 /// config themes
-.config(function($mdThemingProvider, $mdIconProvider) {
+.config(function($mdThemingProvider) {
   $mdThemingProvider
       .theme('default')
       .primaryPalette('pink')
       .accentPalette('orange');
-
-  $mdIconProvider
-      .icon('phone',      'svg/phone.svg')
-      .icon('place',      'svg/place.svg')
-      .icon('email',      'svg/email.svg')
-      .icon('arrow-back', 'svg/arrow-back.svg');
 })
 .run(function($rootScope, $location, $window){
   $rootScope.$on('$stateChangeSuccess', function(event) {
