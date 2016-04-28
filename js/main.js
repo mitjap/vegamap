@@ -18,7 +18,7 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
   .state('map.list', {
     url: '',
     views: {
-      overlay: {
+      sidebar: {
         controller: 'ListController',
         templateUrl: 'partials/list.html'
       }
@@ -68,7 +68,7 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
     $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
   }
 })
-.controller('RestaurantController', function($scope, $state, $stateParams, restaurant, mapState) {
+.controller('RestaurantController', function($scope, $state, $stateParams, $log, restaurant, mapState) {
   if (_.isUndefined(restaurant)) {
     $state.go('map.list');
     return;
@@ -85,16 +85,26 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
       return false;
     }
   };
-  
 
   $scope.restaurant = restaurant;
-  
+  $scope.panorama = {
+    options: {
+      addressControl: false,
+        panControl: false,
+        zoomControl: false,
+        scrollwheel: false
+    },
+    povoptions: {
+      zoom: 1
+    }
+  }
+
   if (!centerOnRestaurant(restaurant, mapState.gmap.getGMap)) {
     var wathcer = $scope.$watch(() => { return mapState.gmap.getGMap; }, function(maps) {
       if (centerOnRestaurant(restaurant, maps)) {
         wathcer();
       }
-    }); 
+    });
   }
 })
 .controller('MapController', function($scope, $state, $q, $mdToast, dataProvider, mapState,
@@ -114,15 +124,15 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
   $scope.markerClick = function(marker, event, restaurant) {
     $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
   };
-  
+
   $scope.data = [];
-  
+
   //$q.all(dataProvider.getRestaurants(), uiGmapGoogleMapApi)
   dataProvider.getRestaurants()
   .then(function(restaurants) {
     $scope.data = restaurants;
   });
-  
+
   geolocation.getLocation()
   .then(function(data) {
     $mdToast.show($mdToast.simple().textContent('Awesome! We got your location.'));
@@ -131,7 +141,7 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
       latitude: data.coords.latitude,
       accuracy: data.coords.accuracy
     };
-    
+
     $scope.fit = false;
     mapState.center = {
       longitude: data.coords.longitude,
@@ -152,7 +162,7 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
     },
     zoom: 14
   };
-  
+
   return state;
 })
 .service('dataProvider', function($q) {
@@ -213,17 +223,17 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
       note: "veganska hrana in pijača",
     }
   ];
-  
+
   var getRestaurants = function() {
     return $q.resolve(restaurants);
   };
-  
+
   var findBySlug = function(slug) {
     return getRestaurants().then(function(data) {
       return _.find(data, _.matchesProperty('slug', slug));
     });
   };
-  
+
   return {
     getRestaurants: getRestaurants,
     findBySlug: findBySlug

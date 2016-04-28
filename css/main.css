@@ -58,9 +58,19 @@ ui-gmap-google-map ,
   flex: 1; /* same as flex: 1 1 auto; */
 }
 
-.angular-google-map-container { flex: 1 }
-
+.angular-google-map-container {
+  flex: 1
+}
+.angular-google-map-street-view-panorama{
+  width: 100%;
+  min-height: 300px;
+}
 
 .label {
   height: 2em;
+}
+
+/* removes google TOS and other legal stuff from panorama and map */
+.gm-style-cc {
+  display:none;
 }

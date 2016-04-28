@@ -1,5 +1,6 @@
 <!--h2>List of vegan restaurants</h2-->
 <md-toolbar>
+  <h2 class="md-toolbar-tools">VEGAMAP</h2>
   <h2 class="md-toolbar-tools">
     <md-button ui-sref="map.list" class="md-icon-button" aria-label="Return">
       <md-icon md-svg-icon="arrow-back"></md-icon>
@@ -8,9 +9,15 @@
   </h2>
 </md-toolbar>
 <md-content>
-  <h3>{{ restaurant.note }}</h3>
-  <md-list>
-     <md-subheader class="md-no-sticky">Info</md-subheader>
+  <ui-gmap-street-view-panorama
+    focalCoord="restaurant.location"
+    radius="50"
+    options="panorama.options"
+    povoptions="panorama.povoptions"
+    events="panorama.streetViewEvents">
+  </ui-gmap-street-view-panorama>
+  <h3 class="md-toolbar-tools">{{ restaurant.note }}</h3>
+    <md-list>
       <md-list-item class="md-2-line">
         <md-icon md-svg-icon="phone" class="md-avatar-icon"></md-icon>
         <div class="md-list-item-text" ng-class="md-offset">
@@ -21,14 +28,14 @@
       <md-list-item class="md-2-line">
         <md-icon md-svg-icon="place" class="md-avatar-icon"></md-icon>
         <div class="md-list-item-text">
-          <h3> {{ restaurant.address }} </h3>
+          <h3>{{ restaurant.address }}</h3>
           <p>Address</p>
         </div>
       </md-list-item>
       <md-list-item class="md-2-line">
         <md-icon md-svg-icon="email" class="md-avatar-icon"></md-icon>
         <div class="md-list-item-text">
-          <h3> {{ restaurant.email }} </h3>
+          <h3>{{ restaurant.email }}</h3>
           <p>Email</p>
         </div>
       </md-list-item>
