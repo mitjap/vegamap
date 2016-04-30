@@ -1,6 +1,6 @@
 {
   "name": "vegamap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     "mitjap <mitjap@gmail.com>"
   ],
@@ -24,13 +24,14 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.0",
+    "angular": "~1.3.0",
     "angular-google-maps": "~2.1.3",
     "angularjs-geolocation": "~0.1.1",
-    "angular-ui-router": "~0.2.15",
-    "angular-material": "~1.0.1"
+    "angular-ui-router": "~0.2.18",
+    "angular-material": "~1.0.8",
+    "lodash": "~3.10.1"
   },
   "resolutions": {
-    "angular": "1.2 - 1.3"
+    "angular": "^1.2"
   }
 }
