@@ -4,7 +4,7 @@
     <span>List of vegan restaurants</span>
   </h2>
 </md-toolbar>
-<md-content>
+<md-content flex layout-fill layout="column">
   <md-list>
     <md-list-item class="md-3-line" ng-repeat="restaurant in restaurants" ng-click="select(restaurant)">
       <img ng-src="http://res-3.cloudinary.com/demo/image/upload/h_40,w_40/pasta.jpg" class="md-avatar" alt="photo" />
@@ -17,3 +17,4 @@
     </md-list-item>
   </md-list>
 </md-content>
+<address-autocomplete></address-autocomplete>

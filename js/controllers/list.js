@@ -11,15 +11,3 @@ angular.module('vegamap-app')
     $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
   }
 })
-.service('mapState', function() {
-  var state = {
-    gmap: {},
-    center: {
-      latitude: 46.05,
-      longitude: 14.5
-    },
-    zoom: 14
-  };
-  
-  return state;
-})

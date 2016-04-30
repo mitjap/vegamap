@@ -1,7 +1,7 @@
 /* global _ */
 /* global angular */
 
-angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', 'geolocation'])
+var app = angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', 'geolocation'])
 
 // config routes
 .config(function($stateProvider, $urlRouterProvider) {
@@ -50,25 +50,79 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
 .config(function($mdThemingProvider) {
   $mdThemingProvider
       .theme('default')
-      .primaryPalette('pink')
+      .primaryPalette('blue')
       .accentPalette('orange');
 })
 .run(function($rootScope, $location, $window){
   $rootScope.$on('$stateChangeSuccess', function(event) {
-    if (!$window.ga) return;
-    $window.ga('send', 'pageview', { page: $location.path() });
+    $window.ga && $window.ga('send', 'pageview', { page: $location.path() });
   });
-})
+});
+
+/// Notification class
+function NotificationService() {
+  this.listeners = {};
+}
+
+NotificationService.prototype.addListener = function($scope, listener) {
+  this.listeners[$scope.$id] = listener;
+
+  // remove listener on scope destruction
+  $scope.$on('$destroy', _.bind(this.removeListener, this, $scope));
+}
+
+NotificationService.prototype.removeListener = function($scope) {
+  delete this.listeners[$scope.$id];
+}
+
+NotificationService.prototype.notifyListeners = function(data) {
+  _.forOwn(this.listeners, function(listener) {
+    listener(data);
+  });
+};
 
 /////////////////////////
 /// service: userData ///
 /////////////////////////
-.service('userData', function() {
-  var data = {
-    location: {}
+function UserDataService() {
+  NotificationService.call(this);
+
+  this.location = undefined;
+}
+
+UserDataService.prototype = Object.create(NotificationService.prototype);
+UserDataService.prototype.constructor = UserDataService;
+
+UserDataService.prototype.setLocation = function(loc) {
+  this.location = angular.copy(loc, this.location);
+
+  this.notifyListeners(this.location);
+}
+
+UserDataService.prototype.getLocation = function() {
+  return angular.copy(this.location);
+}
+
+UserDataService.prototype.hasLocation = function() {
+  return !_.isUndefined(this.location);
+}
+
+app.service('userData', UserDataService)
+
+/////////////////////////
+/// service: mapState ///
+/////////////////////////
+.service('mapState', function() {
+  var state = {
+    gmap: {},
+    center: {
+      latitude: 46.05,
+      longitude: 14.5
+    },
+    zoom: 14
   };
 
-  return data;
+  return state;
 })
 
 /////////////////////////////
@@ -95,3 +149,35 @@ angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', '
     findBySlug: findBySlug
   }
 });
+
+////////////////////////
+/// GeoCodingService ///
+////////////////////////
+
+function GeocodingService($q) {
+  this.$q = $q;
+
+  this.geocoder = new google.maps.Geocoder;
+}
+
+GeocodingService.prototype.geocode = function(data) {
+  var deferred = this.$q.defer();
+
+  this.geocoder.geocode(data, function(results, status) {
+    switch(status) {
+      case google.maps.GeocoderStatus.OK:
+        deferred.resolve(results);
+        break;
+      case google.maps.GeocoderStatus.ZERO_RESULTS:
+        deferred.resolve([]);
+        break;
+      default:
+        deferres.reject(status);
+        break;
+    }
+  });
+
+  return deferred.promise;
+}
+
+app.service('GeocodingService', GeocodingService);
