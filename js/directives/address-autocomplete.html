@@ -1,0 +1,16 @@
+<md-autocomplete style="margin-bottom: 2px"
+    md-no-cache="true"
+    md-selected-item="selectedItem"
+    md-selected-item-change="selectedItemChange(item)"
+    md-search-text="searchText"
+    md-items="item in querySearch(searchText)"
+    md-item-text="selectedItem.description"
+    md-min-length="2"
+    placeholder="Tell us your location">
+  <md-item-template>
+    <span md-highlight-text="searchText" md-highlight-flags="^i">{{ item.description }}</span>
+  </md-item-template>
+  <md-not-found>
+    No location '{{ searchText }}' found.
+  </md-not-found>
+</md-autocomplete>

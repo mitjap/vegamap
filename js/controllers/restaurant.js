@@ -50,8 +50,8 @@ angular.module('vegamap-app')
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix({
       origins: [{
-        lat: userData.location.latitude,
-        lng: userData.location.longitude
+        lat: userData.getLocation().latitude,
+        lng: userData.getLocation().longitude
       }],
       destinations: [{
         lat: location.latitude,
