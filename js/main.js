@@ -87,10 +87,10 @@ NotificationService.prototype.removeListener = function($scope) {
   delete this.listeners[$scope.$id];
 }
 
-NotificationService.prototype.notifyListeners = function(data) {
+NotificationService.prototype.notifyListeners = function(data, clone) {
   _.forOwn(this.listeners, function(listeners, key) {
     _.each(listeners, function(listener) {
-      listener(data);
+      listener(clone ? angular.copy(data) : data);
     });
   });
 };
@@ -110,7 +110,7 @@ UserDataService.prototype.constructor = UserDataService;
 UserDataService.prototype.setLocation = function(loc) {
   this.location = angular.copy(loc, this.location);
 
-  this.notifyListeners(this.location);
+  this.notifyListeners(this.location, true);
 }
 
 UserDataService.prototype.getLocation = function() {
@@ -126,15 +126,22 @@ app.service('userData', UserDataService)
 /////////////////////////
 /// service: mapState ///
 /////////////////////////
-.service('mapState', function() {
+.service('mapState', function(uiGmapIsReady) {
   var state = {
     gmap: {},
     center: {
       latitude: 46.05,
       longitude: 14.5
     },
-    zoom: 14
+    zoom: 14,
+
+    directionsRenderer: undefined
   };
+
+  uiGmapIsReady.promise(1)
+  .then(function() {
+    state.directionsRenderer = new google.maps.DirectionsRenderer({ map: state.gmap.getGMap() });
+  })
 
   return state;
 })
@@ -154,10 +161,15 @@ app.service('userData', UserDataService)
 
       // add temporary distance from location field
       _.each(restaurants, function(restaurant) {
-        restaurant.temp = {
-          distance: DistanceService.distance(location, restaurant.location)
+        console.log(location, restaurant.temp);
+        console.log(restaurant.temp && DistanceService.distance(location, restaurant.temp.location));
+        if (!restaurant.temp || DistanceService.distance(location, restaurant.temp.location) > 1) {
+          restaurant.temp = {
+            location: location,
+            distance: DistanceService.distance(location, restaurant.location)
+          }
         }
-      })
+      });
 
       return restaurants.sort(function(a, b) {
         return a.temp.distance - b.temp.distance;
@@ -219,4 +231,27 @@ app.service('DistanceService', function() {
       )
     }
   };
-})
+});
+
+function DirectionsService($q) {
+  this.$q = $q;
+
+  this.directionsService = new google.maps.DirectionsService();
+}
+
+DirectionsService.prototype.route = function(request) {
+  var deferred = this.$q.defer();
+
+  request.travelMode = request.travelMode || google.maps.TravelMode.DRIVING;
+  this.directionsService.route(request, function(directions, status) {
+    if (status === google.maps.DirectionsStatus.OK) {
+      deferred.resolve(directions);
+    } else {
+      deferred.reject(status);
+    }
+  });
+
+  return deferred.promise;
+}
+
+app.service('DirectionsService', DirectionsService);
