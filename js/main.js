@@ -53,6 +53,16 @@ var app = angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogl
       .primaryPalette('blue')
       .accentPalette('orange');
 })
+
+/// config google maps
+.config(function(uiGmapGoogleMapApiProvider) {
+  uiGmapGoogleMapApiProvider.configure({
+    key: 'AIzaSyBMbjE3DWdjqfGtS1CW3NO0Q1VhVuiEJaw',
+    libraries: 'places,geometry'
+  });
+})
+
+/// RUN!
 .run(function($rootScope, $location, $window){
   $rootScope.$on('$stateChangeSuccess', function(event) {
     $window.ga && $window.ga('send', 'pageview', { page: $location.path() });
@@ -65,7 +75,9 @@ function NotificationService() {
 }
 
 NotificationService.prototype.addListener = function($scope, listener) {
-  this.listeners[$scope.$id] = listener;
+  var listeners = this.listeners[$scope.$id] || [];
+  listeners.push(listener);
+  this.listeners[$scope.$id] = listeners;
 
   // remove listener on scope destruction
   $scope.$on('$destroy', _.bind(this.removeListener, this, $scope));
@@ -76,8 +88,10 @@ NotificationService.prototype.removeListener = function($scope) {
 }
 
 NotificationService.prototype.notifyListeners = function(data) {
-  _.forOwn(this.listeners, function(listener) {
-    listener(data);
+  _.forOwn(this.listeners, function(listeners, key) {
+    _.each(listeners, function(listener) {
+      listener(data);
+    });
   });
 };
 
@@ -128,12 +142,26 @@ app.service('userData', UserDataService)
 /////////////////////////////
 /// service: dataProvider ///
 /////////////////////////////
-.service('dataProvider', function($http, $q) {
+.service('dataProvider', function($http, $q, DistanceService) {
   var dataPromise = $http.get('data/restaurants.json');
 
-  var getRestaurants = function() {
+  var getRestaurants = function(location) {
     return dataPromise.then(function(response) {
       return response.data.restaurants;
+    })
+    .then(function(restaurants) {
+      if (!location) return restaurants;
+
+      // add temporary distance from location field
+      _.each(restaurants, function(restaurant) {
+        restaurant.temp = {
+          distance: DistanceService.distance(location, restaurant.location)
+        }
+      })
+
+      return restaurants.sort(function(a, b) {
+        return a.temp.distance - b.temp.distance;
+      });
     });
   };
 
@@ -181,3 +209,14 @@ GeocodingService.prototype.geocode = function(data) {
 }
 
 app.service('GeocodingService', GeocodingService);
+
+app.service('DistanceService', function() {
+  return {
+    distance: function(loc1, loc2) {
+      return google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(loc1.lat || loc1.latitude, loc1.lng || loc1.longitude),
+        new google.maps.LatLng(loc2.lat || loc2.latitude, loc2.lng || loc2.longitude)
+      )
+    }
+  };
+})

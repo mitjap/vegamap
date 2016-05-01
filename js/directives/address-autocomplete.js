@@ -3,6 +3,7 @@ angular.module('vegamap-app')
   return {
     restrict: 'E',
     templateUrl: './js/directives/address-autocomplete.html',
+    scope: {},
     controller: function($scope, $q, mapState, userData) {
       var autocompleteService = new google.maps.places.AutocompleteService();
       var placesService = new google.maps.places.PlacesService(mapState.gmap.getGMap());
@@ -12,7 +13,6 @@ angular.module('vegamap-app')
       }
 
       userData.addListener($scope, function(item) {
-        console.log("addressAutocomplete callback", item)
         $scope.selectedItem = item;
       })
 
