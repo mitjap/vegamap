@@ -1,59 +1,1554 @@
-{ 
+{
   "restaurants": [
     {
-      "id": 0,
-      "slug": "Ajdovo_Zrno",
-      "name": "Ajdovo Zrno",
-      "address": "Trubarjeva 7, Ljubljana",
-      "email": "some@email.com",
-      "location": { "latitude": 46.052012, "longitude": 14.507220 },
-      "type": 1,
-      "phone": "040832446",
-      "note": "veganska in presna ponudba"
-    },
-    {
       "id": 1,
-      "slug": "Bobencek",
-      "name": "Bobenček",
-      "address": "Trubarjeva 17, Ljubljana",
-      "email": "some@email.com",
-      "location": { "latitude": 46.052409, "longitude": 14.508389 },
-      "type": 0,
-      "phone": "014321283",
-      "note": "veganske jedi, smoothiji, rastlinsko mleko, presne torte"
+      "type": 1,
+      "name": "Ajdovo Zrno",
+      "slug": "Ajdovo_Zrno",
+      "address": "Trubarjeva cesta 7, 1000 Ljubljana, Slovenia",
+      "email": "ajdovo.zrno@gmail.com",
+      "web": "http://www.ajdovo-zrno.si/",
+      "facebook": "http://www.facebook.com/pages/Ajdovo-zrno/232157813499799",
+      "phone": "040832446",
+      "note": "veganska in presna ponudba",
+      "location": {
+        "latitude": 46.0520133,
+        "longitude": 14.5072227
+      }
     },
     {
       "id": 2,
-      "slug": "Loving_Hut_-_Ljubljana_Vic",
-      "name": "Loving Hut - Ljubljana Vič",
-      "address": "Koprska ulica 72, Ljubljana",
-      "email": "some@email.com",
-      "location": { "latitude": 46.036941, "longitude": 14.482071 },
-      "type": 0,
-      "phone": "070631500",
-      "note": "veganska hrana in pijača"
+      "type": 2,
+      "name": "Ap-Cap",
+      "slug": "Ap_Cap",
+      "address": "Čevljarska ulica 9, 6000 Koper - Capodistria, Slovenia",
+      "email": "apcap.koper@gmail.com",
+      "facebook": "https://www.facebook.com/apcap.koper",
+      "phone": "082057350",
+      "note": "sladki in slani zavitki, sendviči, smoothiji, veganske sladice",
+      "location": {
+        "latitude": 45.54754699999999,
+        "longitude": 13.7297693
+      }
     },
     {
       "id": 3,
-      "slug": "Loving_Hut_-_Ljubljana_Center",
-      "name": "Loving Hut - Ljubljana Center",
-      "address": "Trg osvobodilne fronte 14, Ljubljana",
-      "email": "some@email.com",
-      "location": { "latitude": 46.057449, "longitude": 14.508750 },
-      "type": 0,
-      "phone": "068126970",
-      "note": "veganska hrana in pijača"
+      "type": 2,
+      "name": "Art & Caffe kavarna",
+      "slug": "Art_and_Caffe_kavarna",
+      "address": "Trg svobode 3, 1270 Litija, Slovenia",
+      "facebook": "https://www.facebook.com/art.caffe.3?fref=ts",
+      "note": "presne torte, smoothiji, rastlinsko mleko",
+      "location": {
+        "latitude": 46.0562707,
+        "longitude": 14.8277705
+      }
     },
     {
       "id": 4,
-      "slug": "Loving_Hut_-_Ljubljana_Siska",
-      "name": "Loving Hut - Ljubljana Šiška",
-      "address": "Devova ulica 5, Ljubljana",
-      "email": "some@email.com",
-      "location": { "latitude": 46.086281, "longitude": 14.477469 },
+      "type": 2,
+      "name": "Azijska restavracija Shambala",
+      "slug": "Azijska_restavracija_Shambala",
+      "address": "Križevniška ulica 12, 1000 Ljubljana, Slovenia",
+      "email": "info@shambala.si",
+      "web": "http://www.shambala.si/",
+      "facebook": "http://www.facebook.com/restavracijashambala",
+      "phone": "031843833",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.0463874,
+        "longitude": 14.5043767
+      }
+    },
+    {
+      "id": 5,
+      "type": 2,
+      "name": "Bangkok Street",
+      "slug": "Bangkok_Street",
+      "address": "Šmartinska cesta 152g, 1000 Ljubljana, Slovenia",
+      "email": "info@bangkokstreet.si",
+      "web": "http://bangkokstreet.si/",
+      "facebook": "https://www.facebook.com/BangkokStreet.citypark",
+      "phone": "064170728",
+      "note": "tajske veganske jedi",
+      "location": {
+        "latitude": 46.0682176,
+        "longitude": 14.5461394
+      }
+    },
+    {
+      "id": 6,
+      "type": 2,
+      "name": "Bar pri Vodnjaku",
+      "slug": "Bar_pri_Vodnjaku",
+      "address": "Gregorčičeva ulica 2a, 1235 Radomlje, Slovenia",
+      "facebook": "https://www.facebook.com/Bar-pri-vodnjaku-206940019330099",
+      "phone": "051389544",
+      "note": "rastlinsko mleko",
+      "location": {
+        "latitude": 46.1754393,
+        "longitude": 14.6105268
+      }
+    },
+    {
+      "id": 7,
+      "type": 2,
+      "name": "Barabuk kavarna in knjigarna",
+      "slug": "Barabuk_kavarna_in_knjigarna",
+      "address": "Rimska cesta 23, 1000 Ljubljana, Slovenia",
+      "facebook": "https://www.facebook.com/pages/Barabuk-kavarna-in-knjigarna/750720064944757",
+      "phone": "031755554",
+      "note": "rastlinska mleka, sendviči",
+      "location": {
+        "latitude": 46.04766110000001,
+        "longitude": 14.4979366
+      }
+    },
+    {
+      "id": 8,
+      "type": 2,
+      "name": "Bazilika Bistro",
+      "slug": "Bazilika_Bistro",
+      "address": "Prešernova cesta 15, 1000 Ljubljana, Slovenia",
+      "email": "darja@bazilika.si",
+      "web": "http://www.bazilika.si/bistro/",
+      "phone": "012446275",
+      "note": "veganske jedi (pite, sendviči in juhe, smoothiji, sveže stisnjeni sokovi in solate)",
+      "location": {
+        "latitude": 46.0497279,
+        "longitude": 14.4974415
+      }
+    },
+    {
+      "id": 9,
+      "type": 2,
+      "name": "Bazilika Shop & Cafe",
+      "slug": "Bazilika_Shop_and_Cafe",
+      "address": "Miklošičeva cesta 22, 1000 Ljubljana, Slovenia",
+      "email": "darja@bazilika.si",
+      "web": "http://www.bazilika.si/",
+      "phone": "041530539",
+      "note": "veganske jedi (pite, sendviči in juhe, smoothiji, sveže stisnjeni sokovi in solate)",
+      "location": {
+        "latitude": 46.0546192,
+        "longitude": 14.5074599
+      }
+    },
+    {
+      "id": 10,
+      "type": 2,
+      "name": "Bazilika Timijan",
+      "slug": "Bazilika_Timijan",
+      "address": "Ljubljana, Slovenia",
+      "email": "bazilika.timijan@gmail.com",
+      "facebook": "hhttps://www.facebook.com/bazilika.timijan",
+      "phone": "030278528",
+      "note": "dostava svežih malic (tudi veganskih) iz sezonskih sestavin",
+      "location": {
+        "latitude": 46.0569465,
+        "longitude": 14.5057515
+      }
+    },
+    {
+      "id": 11,
+      "type": 2,
+      "name": "Best Western Premier Hotel Slon",
+      "slug": "Best_Western_Premier_Hotel_Slon",
+      "address": "Slovenska cesta 34, 1000 Ljubljana, Slovenia",
+      "email": "info@cacao.si",
+      "web": "http://www.hotelslon.com/",
+      "facebook": "http://www.facebook.com/hotel.slon",
+      "phone": "014701181",
+      "note": "veganske jedi, presne torte",
+      "location": {
+        "latitude": 46.0525747,
+        "longitude": 14.5037531
+      }
+    },
+    {
+      "id": 12,
+      "type": 2,
+      "name": "Bistro Arty",
+      "slug": "Bistro_Arty",
+      "address": "Slovenska ulica 20, 2000 Maribor, Slovenia",
+      "facebook": "https://www.facebook.com/GostilnicaArty/",
+      "phone": "041365316",
+      "note": "Veganske jedi",
+      "location": {
+        "latitude": 46.5604263,
+        "longitude": 15.6459755
+      }
+    },
+    {
+      "id": 13,
+      "type": 1,
+      "name": "Bistro Piknik",
+      "slug": "Bistro_Piknik",
+      "address": "Ljubljanska cesta 91, 1230 Domžale, Slovenia",
+      "facebook": "https://www.facebook.com/Bistro-Piknik-1662197110664857/?fref=ts",
+      "phone": "040841363",
+      "note": "veganske jedi, rastlinsko mleko, presne sladice",
+      "location": {
+        "latitude": 46.1416321,
+        "longitude": 14.5951269
+      }
+    },
+    {
+      "id": 14,
+      "type": 2,
+      "name": "Cafe Kolaž",
+      "slug": "Cafe_Kolaz",
+      "address": "Gornji trg 15, 1000 Ljubljana, Slovenia",
+      "facebook": "https://www.facebook.com/kafe.kolaz",
+      "phone": "059142824",
+      "note": "veganska kosila, veganski suši, veganske sladice",
+      "location": {
+        "latitude": 46.0467057,
+        "longitude": 14.5075688
+      }
+    },
+    {
+      "id": 15,
+      "type": 2,
+      "name": "Caffe Bar Pasha",
+      "slug": "Caffe_Bar_Pasha",
+      "address": "Perovo 27, 1241 Kamnik, Slovenia",
+      "email": "caffepasha@yahoo.com",
+      "facebook": "https://www.facebook.com/caffebar.pasha?sk=wall",
+      "phone": "018312637",
+      "note": "riževo mleko, smoothiji, veganske malice,presne torte",
+      "location": {
+        "latitude": 46.2091308,
+        "longitude": 14.60539
+      }
+    },
+    {
+      "id": 16,
+      "type": 2,
+      "name": "Čajarna Stari Most",
+      "slug": "Cajarna_Stari_Most",
+      "address": "Glavni trg 17, 8000 Novo mesto, Slovenia",
+      "email": "info@starimost.si",
+      "web": "http://www.starimost.si",
+      "facebook": "https://www.facebook.com/cajarna",
+      "phone": "073370160",
+      "note": "presne torte, rastlinsko mleko",
+      "location": {
+        "latitude": 45.802277,
+        "longitude": 15.1703523
+      }
+    },
+    {
+      "id": 17,
       "type": 0,
+      "name": "D&J restavracija",
+      "slug": "DandJ_restavracija",
+      "address": "Meljska cesta 42, 2000 Maribor, Slovenia",
+      "web": "http://www.dobrojem.si",
+      "facebook": "https://www.facebook.com/Dobrojemsi-1645764239025829/",
+      "phone": "051322431",
+      "note": "Veganske izbire",
+      "location": {
+        "latitude": 46.5604851,
+        "longitude": 15.6647472
+      }
+    },
+    {
+      "id": 18,
+      "type": 2,
+      "name": "Dabuda",
+      "slug": "Dabuda",
+      "address": "Šubičeva ulica 1a, 1000 Ljubljana, Slovenia",
+      "email": "info@dabuda.si",
+      "web": "http://www.dabuda.si/",
+      "phone": "014253060",
+      "note": "azijske veganske jedi",
+      "location": {
+        "latitude": 46.0508141,
+        "longitude": 14.5018883
+      }
+    },
+    {
+      "id": 19,
+      "type": 2,
+      "name": "FAjN plac",
+      "slug": "FAjN_plac",
+      "address": "Škofja vas 40c, 3211 Škofja vas, Slovenia",
+      "facebook": "https://www.facebook.com/fajnplac?fref=ts",
+      "note": "veganski topli napitki",
+      "location": {
+        "latitude": 46.2671953,
+        "longitude": 15.2902279
+      }
+    },
+    {
+      "id": 20,
+      "type": 2,
+      "name": "Falafel",
+      "slug": "Falafel",
+      "address": "Trubarjeva cesta 40, 1000 Ljubljana, Slovenia",
+      "email": "info@falafel.si",
+      "web": "http://falafel.si/",
+      "facebook": "http://www.facebook.com/Falafel.Ljubljana",
+      "phone": "041640166",
+      "note": "falafel",
+      "location": {
+        "latitude": 46.052433,
+        "longitude": 14.5110256
+      }
+    },
+    {
+      "id": 21,
+      "type": 2,
+      "name": "Falafel Kamnik",
+      "slug": "Falafel_Kamnik",
+      "address": "Šolska ulica 1, 1241 Kamnik, Slovenia",
+      "email": "falafel.kamnik@gmail.com",
+      "facebook": "http://www.facebook.com/pages/Falafel-Kamnik/36945678441",
+      "phone": "031400777",
+      "note": "falafel",
+      "location": {
+        "latitude": 46.2212237,
+        "longitude": 14.6081426
+      }
+    },
+    {
+      "id": 22,
+      "type": 2,
+      "name": "Fari's Delice",
+      "slug": "Faris_Delice",
+      "address": "Miklošičeva cesta 34, 1000 Ljubljana, Slovenia",
+      "facebook": "https://www.facebook.com/faris.delice",
+      "phone": "040825533",
+      "note": "Veganske izbire",
+      "location": {
+        "latitude": 46.05677559999999,
+        "longitude": 14.5083706
+      }
+    },
+    {
+      "id": 23,
+      "type": 2,
+      "name": "Fetiche Patisserie",
+      "slug": "Fetiche_Patisserie",
+      "address": "Cankarjevo nabrežje 25, 1000 Ljubljana, Slovenia",
+      "web": "http://www.fetichepatisserie.com/",
+      "phone": "040700370",
+      "note": "veganski sladoled",
+      "location": {
+        "latitude": 46.0489842,
+        "longitude": 14.5058362
+      }
+    },
+    {
+      "id": 24,
+      "type": 1,
+      "name": "FIT BAR Fresh4you",
+      "slug": "FIT_BAR_Fresh4you",
+      "address": "Portorož, Slovenia",
+      "email": "info@fresh4you.si",
+      "web": "http://www.fresh4you.si/",
+      "phone": "056928017,041925453",
+      "note": "presni center",
+      "location": {
+        "latitude": 45.5142898,
+        "longitude": 13.5908455
+      }
+    },
+    {
+      "id": 25,
+      "type": 2,
+      "name": "Gostila Frajgajba",
+      "slug": "Gostila_Frajgajba",
+      "address": "Viadukt Vodole I, 2229 Malečnik, Slovenia",
+      "email": "info@frajgraba.si",
+      "web": "http://www.frajgraba.si/",
+      "phone": "024732403",
+      "note": "možnost priprave veganskega obroka",
+      "location": {
+        "latitude": 46.5572858,
+        "longitude": 15.6883784
+      }
+    },
+    {
+      "id": 26,
+      "type": 2,
+      "name": "Gostilna Krištof",
+      "slug": "Gostilna_Kristof",
+      "address": "Predoslje 22, 4000 Kranj, Slovenia",
+      "email": "kristof@siol.net",
+      "web": "http://www.gostilnakristof.si/",
+      "phone": "042341030041358786041672097",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.2677196,
+        "longitude": 14.3858754
+      }
+    },
+    {
+      "id": 27,
+      "type": 2,
+      "name": "Gostilna Mili vrh Kamnik",
+      "slug": "Gostilna_Mili_vrh_Kamnik",
+      "address": "Žale 10a, 1241 Kamnik, Slovenia",
+      "email": "gostilna.milivrh@kks-kamnik.si",
+      "web": "http://www.gostilna-milivrh.si/",
+      "facebook": "http://www.facebook.com/pages/Gostilna-Mili-vrh-Kamnik/219088212003#!/pages/Inn-Mili-vrh-Kamnik-Slovenia/491726657515383",
+      "phone": "018317045",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.2286769,
+        "longitude": 14.5987542
+      }
+    },
+    {
+      "id": 28,
+      "type": 2,
+      "name": "Gostilna Pizzerija Pr'Benk",
+      "slug": "Gostilna_Pizzerija_PrBenk",
+      "address": "Cesta Kokrškega odreda 3, 4294 Križe, Slovenia",
+      "facebook": "https://www.facebook.com/Gostilna-Pizzerija-PrBenk-170908909940176/?fref=ts",
+      "phone": "059116166",
+      "note": "veganske pice, presne torte",
+      "location": {
+        "latitude": 46.3395593,
+        "longitude": 14.2997019
+      }
+    },
+    {
+      "id": 29,
+      "type": 2,
+      "name": "Gostilnica in picerija Pobreški hram",
+      "slug": "Gostilnica_in_picerija_Pobreski_hram",
+      "address": "Osojnikova ulica 20, 2000 Maribor, Slovenia",
+      "web": "http://www.pobreskihram.si/domov.html",
+      "facebook": "https://www.facebook.com/Gostilnica-picerija-Pobre%C5%A1ki-hram-308111172711479/?fref=ts",
+      "phone": "024730473,051621112",
+      "note": "3 različne veganske pice z veganskim sirom",
+      "location": {
+        "latitude": 46.5543668,
+        "longitude": 15.6660847
+      }
+    },
+    {
+      "id": 30,
+      "type": 2,
+      "name": "Gostišče Tulipan",
+      "slug": "Gostisce_Tulipan",
+      "address": "Alpska cesta 8, 4248 Lesce, Slovenia",
+      "email": "info@tulipan-azman.si",
+      "web": "http://www.tulipan-azman.si/",
+      "facebook": "https://www.facebook.com/pages/Gosti%C5%A1%C4%8De-Tulipan-Lesce/125984770786227",
+      "phone": "045378800",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.35748299999999,
+        "longitude": 14.163664
+      }
+    },
+    {
+      "id": 31,
+      "type": 0,
+      "name": "Gurmama",
+      "slug": "Gurmama",
+      "address": "Štihova ulica 6, 1000 Ljubljana, Slovenia",
+      "email": "masa@gurmama.com",
+      "web": "http://www.gurmama.com/",
+      "facebook": "http://www.facebook.com/gurmama",
+      "phone": "051619824",
+      "note": "bio veganska in presna kosila, delavnice priprave presne hrane",
+      "location": {
+        "latitude": 46.0609693,
+        "longitude": 14.515297
+      }
+    },
+    {
+      "id": 32,
+      "type": 2,
+      "name": "Hiša De Rin",
+      "slug": "Hisa_De_Rin",
+      "address": "Cankarjeva ulica 3, 6000 Koper - Capodistria, Slovenia",
+      "facebook": "https://www.facebook.com/hisa.de.rin",
+      "phone": "040151712",
+      "note": "veganski sendviči",
+      "location": {
+        "latitude": 45.5483576,
+        "longitude": 13.7314338
+      }
+    },
+    {
+      "id": 33,
+      "type": 1,
+      "name": "Holyfood",
+      "slug": "Holyfood",
+      "address": "Igriška ulica 5, 1000 Ljubljana, Slovenia",
+      "web": "http://holyfood.harekrisna.info/Hollyfood.html",
+      "facebook": "https://www.facebook.com/pages/HOLYFOOD/124182884296987",
+      "phone": "012511384",
+      "note": "vegansko kosilo, pica, hot dog, sendviči in halva",
+      "location": {
+        "latitude": 46.0480819,
+        "longitude": 14.4993023
+      }
+    },
+    {
+      "id": 34,
+      "type": 2,
+      "name": "Isabella food&wine",
+      "slug": "Isabella_foodandwine",
+      "address": "Poštna ulica 3, 2000 Maribor, Slovenia",
+      "facebook": "https://www.facebook.com/isabella.food.wine",
+      "phone": "059959450",
+      "note": "Veganski sendvič in druge jedi",
+      "location": {
+        "latitude": 46.5582932,
+        "longitude": 15.6446954
+      }
+    },
+    {
+      "id": 35,
+      "type": 2,
+      "name": "Japonska restavracija Sushimama",
+      "slug": "Japonska_restavracija_Sushimama",
+      "address": "Wolfova ulica 12, 1000 Ljubljana, Slovenia",
+      "email": "romeo.plus@siol.net",
+      "web": "http://sushimama.si/",
+      "phone": "040702070",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.050791,
+        "longitude": 14.5050288
+      }
+    },
+    {
+      "id": 36,
+      "type": 0,
+      "name": "Juhahu",
+      "slug": "Juhahu",
+      "address": "Center District, 1000, Slovenia",
+      "email": "zavod.juhahu@gmail.com",
+      "web": "http://juhahu.blogspot.com/",
+      "phone": "041206806",
+      "note": "dostava veganskih juh po centru Ljubljane",
+      "location": {
+        "latitude": 46.047677,
+        "longitude": 14.515132
+      }
+    },
+    {
+      "id": 37,
+      "type": 1,
+      "name": "Juicebox EF",
+      "slug": "Juicebox_EF",
+      "address": "Kardeljeva ploščad 17, 1000 Ljubljana, Slovenia",
+      "email": "f@juicebox.si",
+      "web": "http://www.juicebox.si",
+      "phone": "040463544",
+      "note": "sveže iztisnjeni sokovi in smoothiji",
+      "location": {
+        "latitude": 46.0740168,
+        "longitude": 14.516449
+      }
+    },
+    {
+      "id": 38,
+      "type": 1,
+      "name": "Juicebox Kranj",
+      "slug": "Juicebox_Kranj",
+      "address": "Koroška cesta 4, 4000 Kranj, Slovenia",
+      "email": "kranj@juicebox.si",
+      "web": "http://www.juicebox.si/",
+      "facebook": "https://www.facebook.com/JuiceboxKranj",
+      "phone": "041581929041989550",
+      "note": "sveže iztisnjeni sokovi in",
+      "location": {
+        "latitude": 46.2420309,
+        "longitude": 14.3561286
+      }
+    },
+    {
+      "id": 39,
+      "type": 2,
+      "name": "Kavarna in slaščičarna Marelica",
+      "slug": "Kavarna_in_slascicarna_Marelica",
+      "address": "Cesta na Ostrožno 136, 3000 Celje, Slovenia",
+      "email": "kavarnaslascicarna.marelica.3@facebook.com",
+      "facebook": "http://www.facebook.com/kavarnaslascicarna.marelica",
+      "phone": "051212313",
+      "note": "veganska torta",
+      "location": {
+        "latitude": 46.2540679,
+        "longitude": 15.2407027
+      }
+    },
+    {
+      "id": 40,
+      "type": 2,
+      "name": "Kavarna NULA NULA",
+      "slug": "Kavarna_NULA_NULA",
+      "address": "Stošičeva ulica 2, 4000 Kranj, Slovenia",
+      "facebook": "https://www.facebook.com/pages/Kavarna-NULA-NULA/391495780952291",
+      "phone": "059973438",
+      "note": "kava z rastlinskim mlekom in smoothiji",
+      "location": {
+        "latitude": 46.2461096,
+        "longitude": 14.3534485
+      }
+    },
+    {
+      "id": 41,
+      "type": 2,
+      "name": "Kavarna Piškotek",
+      "slug": "Kavarna_Piskotek",
+      "address": "Šutna 35, 1241 Kamnik, Slovenia",
+      "facebook": "https://www.facebook.com/Kavarna-Pi%C5%A1kotek-464152900388675",
+      "phone": "040881793",
+      "note": "napitki z riževim, mandljevim ali ovsenim mlekom, veganski sladoledi",
+      "location": {
+        "latitude": 46.222252,
+        "longitude": 14.6076854
+      }
+    },
+    {
+      "id": 42,
+      "type": 2,
+      "name": "Kavarna Tiskarna",
+      "slug": "Kavarna_Tiskarna",
+      "address": "Dunajska cesta 123, 1000 Ljubljana, Slovenia",
+      "facebook": "https://www.facebook.com/kavarnaTiskarna",
+      "phone": "070553531",
+      "note": "Veganski burger",
+      "location": {
+        "latitude": 46.0762703,
+        "longitude": 14.5107226
+      }
+    },
+    {
+      "id": 43,
+      "type": 2,
+      "name": "Kavarna Vahtnca",
+      "slug": "Kavarna_Vahtnca",
+      "address": "Mestni trg 31, 4220 Škofja Loka, Slovenia",
+      "email": "info@vahtnca.si",
+      "web": "http://www.vahtnca.si/index.htm",
+      "facebook": "https://www.facebook.com/kavarna.vahtnca",
+      "phone": "045121479",
+      "note": "veganske sladice",
+      "location": {
+        "latitude": 46.1647385,
+        "longitude": 14.3067091
+      }
+    },
+    {
+      "id": 44,
+      "type": 2,
+      "name": "Kavarnica NAJDIDOM",
+      "slug": "Kavarnica_NAJDIDOM",
+      "address": "Kardeljeva cesta 73, 2000 Maribor, Slovenia",
+      "facebook": "https://www.facebook.com/KavarnicaNajdiDom/",
+      "phone": "040696570",
+      "note": "Veganske slaščice",
+      "location": {
+        "latitude": 46.5415286,
+        "longitude": 15.6334887
+      }
+    },
+    {
+      "id": 45,
+      "type": 2,
+      "name": "Kot doma",
+      "slug": "Kot_doma",
+      "address": "Šmartinska cesta 152, 1000 Ljubljana, Slovenia",
+      "email": "trgovinakotdoma@gmail.com",
+      "web": "http://www.bioas.si/geek/index.php",
+      "facebook": "http://www.facebook.com/compat.org",
+      "phone": "031689008",
+      "note": "veganske malice",
+      "location": {
+        "latitude": 46.0693078,
+        "longitude": 14.5484774
+      }
+    },
+    {
+      "id": 46,
+      "type": 2,
+      "name": "La Pizzeria",
+      "slug": "La_Pizzeria",
+      "address": "Gosposka ulica 8, 2000 Maribor, Slovenia",
+      "email": "info@lapizzeria.si",
+      "web": "http://www.lapizzeria.si/",
+      "facebook": "https://www.facebook.com/lapizzeriamaribor?fref=ts",
+      "note": "veganska pica",
+      "location": {
+        "latitude": 46.5581182,
+        "longitude": 15.6464249
+      }
+    },
+    {
+      "id": 47,
+      "type": 2,
+      "name": "Labirint restavracija",
+      "slug": "Labirint_restavracija",
+      "address": "Čevljarska ulica 9, 6000 Koper - Capodistria, Slovenia",
+      "facebook": "https://www.facebook.com/labirintkoper",
+      "phone": "082057350",
+      "note": "veganska dnevna kosila",
+      "location": {
+        "latitude": 45.54754699999999,
+        "longitude": 13.7297693
+      }
+    },
+    {
+      "id": 48,
+      "type": 2,
+      "name": "Leteči krožnik",
+      "slug": "Leteci_kroznik",
+      "address": "Bratovševa ploščad 1, 1000 Ljubljana, Slovenia",
+      "email": "info@letecikroznik.si",
+      "web": "http://www.letecikroznik.si",
+      "facebook": "https://www.facebook.com/letecikroznikdostava",
+      "phone": "040195484",
+      "note": "Dostava hrane po Ljubljani: enolončnice, wrapi, solate, pizze, sladice in pijače (od ponedeljka do sobote).",
+      "location": {
+        "latitude": 46.0889099,
+        "longitude": 14.5126644
+      }
+    },
+    {
+      "id": 49,
+      "type": 0,
+      "name": "Loving Hut Celje",
+      "slug": "Loving_Hut_Celje",
+      "address": "Linhartova ulica 7, 3000 Celje, Slovenia",
+      "email": "lovinghutslo@gmail.com",
+      "web": "http://celje.lovinghut.si/",
+      "facebook": "https://www.facebook.com/pages/Loving-Hut-Celje/214211045257437",
+      "phone": "070631501",
+      "note": "veganska hrana in pijača",
+      "location": {
+        "latitude": 46.229829,
+        "longitude": 15.2637164
+      }
+    },
+    {
+      "id": 50,
+      "type": 0,
+      "name": "Loving Hut Ljubljana",
+      "slug": "Loving_Hut_Ljubljana",
+      "address": "Koprska ulica 72, 1000 Ljubljana, Slovenia",
+      "email": "lovinghutslo@gmail.com",
+      "web": "http://ljubljana.lovinghut.si/",
+      "facebook": "http://www.facebook.com/lovinghut.lj",
+      "phone": "070631500",
+      "note": "veganska hrana in pijača",
+      "location": {
+        "latitude": 46.0372941,
+        "longitude": 14.4818828
+      }
+    },
+    {
+      "id": 51,
+      "type": 0,
+      "name": "Loving Hut Ljubljana Center",
+      "slug": "Loving_Hut_Ljubljana_Center",
+      "address": "Trg Osvobodilne fronte 14, 1000 Ljubljana, Slovenia",
+      "email": "lovinghutljubljana@gmail.com",
+      "facebook": "http://www.facebook.com/lovinghutljubljanacenter",
+      "phone": "068126970",
+      "note": "veganska hrana in pijača",
+      "location": {
+        "latitude": 46.0574435,
+        "longitude": 14.5087523
+      }
+    },
+    {
+      "id": 52,
+      "type": 0,
+      "name": "Loving Hut Maribor – restavracija",
+      "slug": "Loving_Hut_Maribor_restavracija",
+      "address": "Gosposvetska cesta 43a, 2000 Maribor, Slovenia",
+      "web": "http://lovinghut.si/",
+      "note": "veganska hrana in pijača",
+      "location": {
+        "latitude": 46.5614941,
+        "longitude": 15.6340639
+      }
+    },
+    {
+      "id": 53,
+      "type": 0,
+      "name": "Loving Hut Šiška",
+      "slug": "Loving_Hut_Siska",
+      "address": "Devova ulica, 1000 Ljubljana, Slovenia",
+      "web": "http://www.lovinghut.si/",
+      "facebook": "https://www.facebook.com/lovinghutsiska?fref=ts",
       "phone": "068130463",
-      "note": "veganska hrana in pijača"
+      "note": "veganska hrana in pijača",
+      "location": {
+        "latitude": 46.0856147,
+        "longitude": 14.4787851
+      }
+    },
+    {
+      "id": 54,
+      "type": 2,
+      "name": "Maharaja –indijska restavracija",
+      "slug": "Maharaja_indijska_restavracija",
+      "address": "Vodnikova cesta 35, 1000 Ljubljana, Slovenia",
+      "email": "info@maharaja.si",
+      "web": "http://www.maharaja.si/indija/vegetarijanske-jedi",
+      "facebook": "http://www.facebook.com/restavracijamaharaja",
+      "phone": "030605560",
+      "note": "veganski meniji",
+      "location": {
+        "latitude": 46.06549709999999,
+        "longitude": 14.4907588
+      }
+    },
+    {
+      "id": 55,
+      "type": 2,
+      "name": "Mama Katja",
+      "slug": "Mama_Katja",
+      "address": "Poslovna cona A 35, 4208 Šenčur, Slovenia",
+      "email": "info@mamakatja.si",
+      "web": "http://www.mamakatja.si/",
+      "facebook": "https://www.facebook.com/MamakatjaSLO?fref=ts",
+      "phone": "070507050",
+      "note": "Veganski bruger, veganski sendvič, juhe, solate",
+      "location": {
+        "latitude": 46.2362103,
+        "longitude": 14.4097594
+      }
+    },
+    {
+      "id": 57,
+      "type": 2,
+      "name": "Moysushi",
+      "slug": "Moysushi",
+      "address": "Mestni trg 17, 1000 Ljubljana, Slovenia",
+      "email": "info@moysushi.si",
+      "web": "http://moysushi.si/",
+      "phone": "059935540",
+      "note": "Veganske jedi.",
+      "location": {
+        "latitude": 46.0489498,
+        "longitude": 14.5061139
+      }
+    },
+    {
+      "id": 58,
+      "type": 2,
+      "name": "Mr.Falafel Maribor",
+      "slug": "MrFalafel_Maribor",
+      "address": "Ulica Vita Kraigherja 5, 2000 Maribor, Slovenia",
+      "email": "mr.falafel111@gmail.com",
+      "facebook": "https://www.facebook.com/mr.falafel.maribor",
+      "phone": "030412181",
+      "note": "veganski falafel",
+      "location": {
+        "latitude": 46.5584117,
+        "longitude": 15.6503363
+      }
+    },
+    {
+      "id": 59,
+      "type": 1,
+      "name": "Na stopničkah",
+      "slug": "Na_stopnickah",
+      "address": "Gortanov trg 12, 6000 Koper - Capodistria, Slovenia",
+      "facebook": "https://www.facebook.com/nastopnickahkoper",
+      "phone": "070570607",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 45.5462232,
+        "longitude": 13.7287255
+      }
+    },
+    {
+      "id": 61,
+      "type": 2,
+      "name": "Oštarija",
+      "slug": "Ostarija",
+      "address": "Sokolski trg 2, 8350 Dolenjske Toplice, Slovenia",
+      "email": "info@starimost.si",
+      "web": "http://www.ostarija.si/",
+      "facebook": "https://www.facebook.com/#!/cajarna?fref=ts",
+      "phone": "051262990",
+      "note": "možnost veganske priprave menijev",
+      "location": {
+        "latitude": 45.755846,
+        "longitude": 15.0593989
+      }
+    },
+    {
+      "id": 62,
+      "type": 2,
+      "name": "Picerija Hitri",
+      "slug": "Picerija_Hitri",
+      "address": "Seškova cesta 26a, 1215 Medvode, Slovenia",
+      "facebook": "https://www.facebook.com/Picerija-HITRI-831517030209664/",
+      "phone": "013615050",
+      "note": "veganske pice",
+      "location": {
+        "latitude": 46.1388261,
+        "longitude": 14.4138923
+      }
+    },
+    {
+      "id": 63,
+      "type": 2,
+      "name": "Pivohram Golar",
+      "slug": "Pivohram_Golar",
+      "address": "Jurkovičeva ulica 29, 9250 Gornja Radgona, Slovenia",
+      "email": "pivo@pivohram.si",
+      "web": "http://www.pivohram.si/",
+      "facebook": "https://www.facebook.com/golarpivohram",
+      "phone": "083833332",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.6832159,
+        "longitude": 15.9866018
+      }
+    },
+    {
+      "id": 64,
+      "type": 2,
+      "name": "Pizzeria Foculus",
+      "slug": "Pizzeria_Foculus",
+      "address": "Gregorčičeva ulica 3, 1000 Ljubljana, Slovenia",
+      "email": "foculus@siol.net",
+      "web": "http://www.picerija.net/foculus.htm",
+      "phone": "014219295",
+      "note": "pica z veganskim sirom\nveganska pica s tofujem",
+      "location": {
+        "latitude": 46.0478601,
+        "longitude": 14.5022722
+      }
+    },
+    {
+      "id": 65,
+      "type": 2,
+      "name": "Pizzeria Gallus Bled",
+      "slug": "Pizzeria_Gallus_Bled",
+      "address": "Ljubljanska cesta 4, 4260 Bled, Slovenia",
+      "web": "pizzeriagallus.si/index.php",
+      "facebook": "https://www.facebook.com/PizzeriaGallus",
+      "phone": "045743299",
+      "note": "pice z veganskim sirom",
+      "location": {
+        "latitude": 46.3670519,
+        "longitude": 14.1098373
+      }
+    },
+    {
+      "id": 66,
+      "type": 2,
+      "name": "Pizzeria Tottapizza",
+      "slug": "Pizzeria_Tottapizza",
+      "address": "Puhova Ulica 1, 2000 Maribor, Slovenia",
+      "email": "info@tottapizza.si",
+      "web": "http://tottapizza.si/",
+      "facebook": "https://www.facebook.com/Tottapizza",
+      "phone": "024801814",
+      "note": "veganski sir na pizzah",
+      "location": {
+        "latitude": 46.5482707,
+        "longitude": 15.6767434
+      }
+    },
+    {
+      "id": 67,
+      "type": 2,
+      "name": "Pizzerija Bullbar in dostava pic",
+      "slug": "Pizzerija_Bullbar_in_dostava_pic",
+      "address": "Sneberska cesta 18, 1260 Ljubljana - Polje, Slovenia",
+      "email": "bullbar.pizzeria@gmail.com",
+      "web": "www.pizze.si",
+      "facebook": "www.facebook.com/pizzeria.bullbar?fref=ts",
+      "phone": "031692823,070711831",
+      "note": "picerija in dostava pic z možnostjo izbire veganskega sira Violife, polnozrnatega in/ali brezglutenskega testa, veganski ocvrt sir",
+      "location": {
+        "latitude": 46.07765879999999,
+        "longitude": 14.5726182
+      }
+    },
+    {
+      "id": 68,
+      "type": 2,
+      "name": "Pizzerija Detel’ca",
+      "slug": "Pizzerija_Detelca",
+      "address": "Deteljica 10, 4290 Tržič, Slovenia",
+      "email": "info@pizzerija-detelca.si",
+      "web": "http://www.pizzerija-detelca.si/",
+      "facebook": "https://www.facebook.com/pizzerija.detelca",
+      "phone": "059118128",
+      "note": "veganska pica",
+      "location": {
+        "latitude": 46.3557126,
+        "longitude": 14.292179
+      }
+    },
+    {
+      "id": 69,
+      "type": 2,
+      "name": "Pizzerija Hom",
+      "slug": "Pizzerija_Hom",
+      "address": "Baragov trg 1, 8210 Trebnje, Slovenia",
+      "web": "http://www.hom-trebnje.si/",
+      "facebook": "https://www.facebook.com/pizzeriaHOM/",
+      "phone": "073461900",
+      "note": "veganska pizza",
+      "location": {
+        "latitude": 45.9075756,
+        "longitude": 15.0060327
+      }
+    },
+    {
+      "id": 70,
+      "type": 2,
+      "name": "Pizzerija pod Gradom",
+      "slug": "Pizzerija_pod_Gradom",
+      "address": "Koroška cesta 26, 4290 Tržič, Slovenia",
+      "facebook": "https://www.facebook.com/pages/PIZZERIJA-POD-GRADOM-DOLHAR-DOO/131162256910070",
+      "phone": "04/596-20-55",
+      "note": "veganska pica",
+      "location": {
+        "latitude": 46.3658265,
+        "longitude": 14.3100752
+      }
+    },
+    {
+      "id": 71,
+      "type": 2,
+      "name": "Pizzerija Romano",
+      "slug": "Pizzerija_Romano",
+      "address": "Tavčarjeva ulica 31, 4000 Kranj, Slovenia",
+      "email": "PIZZERIJA.ROMANO@GMAIL.COM",
+      "web": "http://www.pizzerija-romano.si/",
+      "phone": "051363900",
+      "note": "Veganske pizze, veganski solatni krožniki",
+      "location": {
+        "latitude": 46.2393007,
+        "longitude": 14.3570163
+      }
+    },
+    {
+      "id": 72,
+      "type": 2,
+      "name": "Pizzerija Verdi Verdi",
+      "slug": "Pizzerija_Verdi_Verdi",
+      "address": "Griže 125, 3302 Griže, Slovenia",
+      "email": "info@verdi-verdi.com",
+      "web": "http://www.verdi-verdi.com/",
+      "phone": "041805068",
+      "note": "veganski sir",
+      "location": {
+        "latitude": 46.2319304,
+        "longitude": 15.1548996
+      }
+    },
+    {
+      "id": 73,
+      "type": 2,
+      "name": "Pritličje",
+      "slug": "Pritlicje",
+      "address": "Mestni trg 2, 1000 Ljubljana, Slovenia",
+      "web": "http://www.pritlicje.si/",
+      "facebook": "https://www.facebook.com/pritlicje",
+      "phone": "040204693",
+      "note": "veganski sendvič in drugo",
+      "location": {
+        "latitude": 46.0497093,
+        "longitude": 14.5068643
+      }
+    },
+    {
+      "id": 74,
+      "type": 1,
+      "name": "Radha Govinda vegetarijanska restavracija",
+      "slug": "Radha_Govinda_vegetarijanska_restavracija",
+      "address": "Žibertova ulica 23, 1000 Ljubljana, Slovenia",
+      "email": "restavracija@radhagovinda.si",
+      "web": "http://www.radhagovinda.si",
+      "phone": "059058381",
+      "note": "vegetarijanski, veganski in brezglutenski meniji",
+      "location": {
+        "latitude": 46.0629839,
+        "longitude": 14.4989345
+      }
+    },
+    {
+      "id": 75,
+      "type": 2,
+      "name": "Repete",
+      "slug": "Repete",
+      "address": "Gornji trg 23, 1000 Ljubljana, Slovenia",
+      "email": "repetegt@gmail.com",
+      "web": "http://www.visitljubljana.com/si/imenik/zabava/22621/detail.html",
+      "phone": "059015934",
+      "note": "Veganske jedi",
+      "location": {
+        "latitude": 46.0464381,
+        "longitude": 14.5080715
+      }
+    },
+    {
+      "id": 76,
+      "type": 2,
+      "name": "Restavracija Cubis",
+      "slug": "Restavracija_Cubis",
+      "address": "Poslovna cona A 2, 4208 Šenčur, Slovenia",
+      "email": "strezba@r-p.si",
+      "web": "http://www.restavracija-cubis.si/",
+      "facebook": "https://www.facebook.com/restavracija.cubis",
+      "phone": "042791866",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.238805,
+        "longitude": 14.4086814
+      }
+    },
+    {
+      "id": 77,
+      "type": 2,
+      "name": "Restavracija Curry Life Figovec",
+      "slug": "Restavracija_Curry_Life_Figovec",
+      "address": "Gosposvetska cesta 1, 1000 Ljubljana, Slovenia",
+      "email": "info@currylife-figovec.si",
+      "web": "www.currylife-figovec.si",
+      "facebook": "www.facebook.com/currylifefigovec",
+      "phone": "014264410,041825001",
+      "note": "veganski curryji, veganski kebabi, solate",
+      "location": {
+        "latitude": 46.054595,
+        "longitude": 14.503924
+      }
+    },
+    {
+      "id": 78,
+      "type": 2,
+      "name": "Restavracija Mak",
+      "slug": "Restavracija_Mak",
+      "address": "Osojnikova ulica 20, 2000 Maribor, Slovenia",
+      "email": "info@restavracija-mak.si",
+      "web": "http://www.restavracija-mak.si/",
+      "facebook": "http://www.facebook.com/pages/MaK/119684808081496",
+      "phone": "026200053",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.5543668,
+        "longitude": 15.6660847
+      }
+    },
+    {
+      "id": 79,
+      "type": 2,
+      "name": "Restavracija MAXI 2000",
+      "slug": "Restavracija_MAXI_2000",
+      "address": "Trg republike 1, 1000 Ljubljana, Slovenia",
+      "email": "restavracija2000.maxi@mercator.si",
+      "web": "http://www.maxi.si/si/samopostrezna-restavracija-2000/",
+      "phone": "051285334",
+      "note": "veganske izbire v samopostrežni restavraciji",
+      "location": {
+        "latitude": 46.05037249999999,
+        "longitude": 14.5012807
+      }
+    },
+    {
+      "id": 80,
+      "type": 2,
+      "name": "Restavracija Okarina",
+      "slug": "Restavracija_Okarina",
+      "address": "Ljubljanska cesta 8, 4260 Bled, Slovenia",
+      "email": "leo@okarina.com",
+      "web": "http://www.okarina.com/",
+      "phone": "045741458",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.3672441,
+        "longitude": 14.1109682
+      }
+    },
+    {
+      "id": 81,
+      "type": 2,
+      "name": "Ribja Kantina pri Borisu",
+      "slug": "Ribja_Kantina_pri_Borisu",
+      "address": "6000 Koper, Slovenia",
+      "facebook": "https://www.facebook.com/ribja.kantina",
+      "phone": "040868611",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 45.54805899999999,
+        "longitude": 13.7301877
+      }
+    },
+    {
+      "id": 82,
+      "type": 2,
+      "name": "Slaščičarna in kavarna Ilich",
+      "slug": "Slascicarna_in_kavarna_Ilich",
+      "address": "Slovenska ulica 6, 2000 Maribor, Slovenia",
+      "email": "info@ilich.si",
+      "web": "http://www.ilich.si/",
+      "facebook": "https://www.facebook.com/Ilich.since.1909",
+      "phone": "022502408",
+      "note": "veganski sladoled",
+      "location": {
+        "latitude": 46.560481,
+        "longitude": 15.6473318
+      }
+    },
+    {
+      "id": 83,
+      "type": 2,
+      "name": "Slaščičarna Izobraževalnega centra Piramida",
+      "slug": "Slascicarna_Izobrazevalnega_centra_Piramida",
+      "address": "Park mladih 3, 2000 Maribor, Slovenia",
+      "web": "http://www.icp-mb.si/kavarna/",
+      "phone": "023208607",
+      "note": "veganska tortica",
+      "location": {
+        "latitude": 46.5470316,
+        "longitude": 15.6436849
+      }
+    },
+    {
+      "id": 84,
+      "type": 2,
+      "name": "Slaščičarna Lolita",
+      "slug": "Slascicarna_Lolita",
+      "address": "Cankarjevo nabrežje 1, 1000 Ljubljana, Slovenia",
+      "email": "lolita@kaval-group.si",
+      "web": "http://www.slascicarna-lolita.si/",
+      "phone": "059016299",
+      "note": "veganske slaščice in sladoledi",
+      "location": {
+        "latitude": 46.0506061,
+        "longitude": 14.5060705
+      }
+    },
+    {
+      "id": 86,
+      "type": 2,
+      "name": "Slaščice Mihalek",
+      "slug": "Slascice_Mihalek",
+      "address": "Celovška cesta 56, 1000 Ljubljana, Slovenia",
+      "email": "slascice.mihalek@siol.net",
+      "web": "http://www.slascice-mihalek.si/",
+      "facebook": "https://www.facebook.com/pages/Sla%C5%A1%C4%8Di%C4%8Darna-Mihalek/147081795365202",
+      "phone": "012319111",
+      "note": "veganske slaščice",
+      "location": {
+        "latitude": 46.06326259999999,
+        "longitude": 14.4951016
+      }
+    },
+    {
+      "id": 88,
+      "type": 1,
+      "name": "Smooth life",
+      "slug": "Smooth_life",
+      "address": "2000 Maribor, Slovenia",
+      "email": "info@tovarnica-sladkosti.si",
+      "web": "http://smoothlife.si/",
+      "facebook": "http://www.facebook.com/pages/Smooth-life/415497111875377",
+      "phone": "031428177",
+      "note": "dostava svežih smoothijev, juh in solate v Mariboru in okolici",
+      "location": {
+        "latitude": 46.5546503,
+        "longitude": 15.6458812
+      }
+    },
+    {
+      "id": 89,
+      "type": 0,
+      "name": "Smoothie aLIVE",
+      "slug": "Smoothie_aLIVE",
+      "address": "4000 Kranj, Slovenia",
+      "email": "info@frajgraba.si",
+      "web": "http://www.a-live.si/",
+      "facebook": "http://www.facebook.com/aLIVEsmoothie",
+      "phone": "040600735",
+      "note": "bio veganski smoothiji",
+      "location": {
+        "latitude": 46.2428344,
+        "longitude": 14.3555417
+      }
+    },
+    {
+      "id": 90,
+      "type": 2,
+      "name": "Smuti bar, gajbica sadja",
+      "slug": "Smuti_bar_gajbica_sadja",
+      "address": "Cesta Ljubljanske brigade 33, 1000 Ljubljana, Slovenia",
+      "web": "http://www.gajbicasadja.si/stiskanci.html",
+      "phone": "040555092",
+      "note": "smoothiji, sokovi, presne torte, veganski sendviči",
+      "location": {
+        "latitude": 46.0882947,
+        "longitude": 14.4771806
+      }
+    },
+    {
+      "id": 91,
+      "type": 2,
+      "name": "Solist bar&bar",
+      "slug": "Solist_barandbar",
+      "address": "Kongresni trg 10, 1000 Ljubljana, Slovenia",
+      "email": "bar@solist.si",
+      "web": "http://www.solist.si/",
+      "facebook": "http://www.facebook.com/pages/Solist-barbar/171861062855730",
+      "phone": "041323263",
+      "note": "veganski sladoled",
+      "location": {
+        "latitude": 46.04950160000001,
+        "longitude": 14.5047196
+      }
+    },
+    {
+      "id": 92,
+      "type": 2,
+      "name": "Špageterija in pizzerija Al Capone",
+      "slug": "Spageterija_in_pizzerija_Al_Capone",
+      "address": "Ljubljana, Slovenia",
+      "email": "info@al-capone.si",
+      "web": "http://www.al-capone.si/",
+      "phone": "015410061",
+      "note": "veganska pica",
+      "location": {
+        "latitude": 46.0569465,
+        "longitude": 14.5057515
+      }
+    },
+    {
+      "id": 93,
+      "type": 2,
+      "name": "Sputnik",
+      "slug": "Sputnik",
+      "address": "Tržaška cesta 128, 1000 Ljubljana, Slovenia",
+      "email": "dobrodosli@sputnik.si",
+      "web": "http://www.sputnik.si/",
+      "phone": "051627000",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.03895410000001,
+        "longitude": 14.4698796
+      }
+    },
+    {
+      "id": 94,
+      "type": 2,
+      "name": "Srebrna žlica",
+      "slug": "Srebrna_zlica",
+      "address": "Pristaniška ulica 2, 6000 Koper - Capodistria, Slovenia",
+      "facebook": "https://www.facebook.com/#!/pages/Srebrna-%C5%BElica/618058224911394",
+      "phone": "031877433",
+      "note": "juhe, enolončnice, solate",
+      "location": {
+        "latitude": 45.546133,
+        "longitude": 13.7260016
+      }
+    },
+    {
+      "id": 95,
+      "type": 1,
+      "name": "SuperSok",
+      "slug": "SuperSok",
+      "address": "Pristaniška ulica 2, 6000 Koper - Capodistria, Slovenia",
+      "email": "info@supersok.si",
+      "web": "http://supersok.si/",
+      "facebook": "http://www.facebook.com/supersok.si",
+      "phone": "041832323",
+      "note": "sokovi, smoothiji",
+      "location": {
+        "latitude": 45.546133,
+        "longitude": 13.7260016
+      }
+    },
+    {
+      "id": 96,
+      "type": 2,
+      "name": "Tandoori Cafe",
+      "slug": "Tandoori_Cafe",
+      "address": "Trubarjeva cesta 60, 1000 Ljubljana, Slovenia",
+      "facebook": "https://www.facebook.com/TandooriLjubljana",
+      "phone": "040549472",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.0521624,
+        "longitude": 14.5130855
+      }
+    },
+    {
+      "id": 97,
+      "type": 2,
+      "name": "Thai inn pub",
+      "slug": "Thai_inn_pub",
+      "address": "Rimska cesta 17, 1000 Ljubljana, Slovenia",
+      "email": "info@thaipub.s",
+      "web": "http://thaipub.si/",
+      "facebook": "https://www.facebook.com/thaipub.si",
+      "phone": "014210377",
+      "note": "veganske jedi",
+      "location": {
+        "latitude": 46.04755129999999,
+        "longitude": 14.4990324
+      }
+    },
+    {
+      "id": 98,
+      "type": 0,
+      "name": "Vedsko",
+      "slug": "Vedsko",
+      "address": "Zaloška cesta 55, 1000 Ljubljana, Slovenia",
+      "web": "http://vedsko.si/",
+      "facebook": "https://www.facebook.com/vedskakuharija2/",
+      "phone": "031563477",
+      "note": "Dostava kosil po Ljubljani",
+      "location": {
+        "latitude": 46.0562937,
+        "longitude": 14.5344113
+      }
+    },
+    {
+      "id": 99,
+      "type": 2,
+      "name": "Villa Rustica",
+      "slug": "Villa_Rustica",
+      "address": "Majcigerjeva ulica 36, 2000 Maribor, Slovenia",
+      "web": "http://www.villa-rustica.si/",
+      "phone": "024205172",
+      "note": "veganske jedi, veganske torte po naročilu",
+      "location": {
+        "latitude": 46.5421875,
+        "longitude": 15.6200013
+      }
+    },
+    {
+      "id": 100,
+      "type": 2,
+      "name": "Vivo D125",
+      "slug": "Vivo_D125",
+      "address": "Dunajska cesta 125, 1000 Ljubljana, Slovenia",
+      "email": "info@d125.si",
+      "web": "http://www.vivo.si/",
+      "facebook": "https://www.facebook.com/vivo.catering?ref=hl",
+      "phone": "059956740",
+      "note": "Vegansko kosilo",
+      "location": {
+        "latitude": 46.0764534,
+        "longitude": 14.5115361
+      }
+    },
+    {
+      "id": 101,
+      "type": 2,
+      "name": "Zasebni vrtec Račka",
+      "slug": "Zasebni_vrtec_Racka",
+      "address": "Krpanova ulica 11, 6000 Koper - Capodistria, Slovenia",
+      "email": "vrtec@racka.net",
+      "web": "http://www.racka.net/prehrana/kosila-za-domov/",
+      "facebook": "www.facebook.com/vrtecracka",
+      "phone": "040625843",
+      "note": "dnevna veganska kosila",
+      "location": {
+        "latitude": 45.54687089999999,
+        "longitude": 13.7347281
+      }
+    },
+    {
+      "id": 102,
+      "type": 0,
+      "name": "ZaZiv vegan Bar Bled",
+      "slug": "ZaZiv_vegan_Bar_Bled",
+      "address": "Ljubljanska cesta 4, 4260 Bled, Slovenia",
+      "facebook": "https://www.facebook.com/zaziv.vegan.bar.bled",
+      "phone": "041643531",
+      "note": "veganski burgerji, zavitki in sladice",
+      "location": {
+        "latitude": 46.3670519,
+        "longitude": 14.1098373
+      }
+    },
+    {
+      "id": 103,
+      "type": 0,
+      "name": "Zdrava juhica",
+      "slug": "Zdrava_juhica",
+      "address": "Milčinskega ulica 11, 1000 Ljubljana, Slovenia",
+      "email": "narocila@proorganika.si",
+      "web": "http://www.zdrava-juhica.si/",
+      "facebook": "http://www.facebook.com/Zdravajuhica",
+      "phone": "040195015",
+      "note": "dostava vegasnkih jedi po Ljubljani",
+      "location": {
+        "latitude": 46.0719881,
+        "longitude": 14.498028
+      }
+    },
+    {
+      "id": 104,
+      "type": 0,
+      "name": "Zdravo in slastno",
+      "slug": "Zdravo_in_slastno",
+      "address": "Kalinova ulica 26, 1292 Ig, Slovenia",
+      "email": "zdravoinslastno@gmail.com",
+      "facebook": "https://www.facebook.com/zdravoinslastno",
+      "phone": "051351819",
+      "note": "veganske torte in druge sladice po naročilu",
+      "location": {
+        "latitude": 45.9548433,
+        "longitude": 14.5386381
+      }
+    },
+    {
+      "id": 105,
+      "type": 2,
+      "name": "Zhong hua",
+      "slug": "Zhong_hua",
+      "address": "Trubarjeva cesta 50, 1000 Ljubljana, Slovenia",
+      "email": "Baoljubljana@gmail.com",
+      "web": "http://zhonghua-slovenia.webs.com/",
+      "phone": "040472058",
+      "note": "kitajske veganske jedi",
+      "location": {
+        "latitude": 46.0523116,
+        "longitude": 14.5122126
+      }
+    },
+    {
+      "id": 106,
+      "type": 2,
+      "name": "Zvezda, kavarna in slaščičarna",
+      "slug": "Zvezda_kavarna_in_slascicarna",
+      "address": "Ljubljana, Slovenia",
+      "web": "http://www.zvezdaljubljana.si/",
+      "facebook": "https://www.facebook.com/pages/Kavarna-in-sla%C5%A1%C4%8Di%C4%8Darna-Zvezda-BTC",
+      "phone": "015852095",
+      "note": "veganska torta, presne torte, rastlinsko mleko, veganski sladoled",
+      "location": {
+        "latitude": 46.0569465,
+        "longitude": 14.5057515
+      }
+    },
+    {
+      "id": 107,
+      "type": 2,
+      "name": "Argos cafe",
+      "slug": "Argos_cafe",
+      "address": "Cankarjev trg 6, 1360 Vrhnika, Slovenia",
+	  "email": "info@mantova.si",
+      "web": "http://www.mantova.si/",
+      "facebook": "https://www.facebook.com/HOTEL-MANTOVA-Vrhnika-207768202485/",
+      "phone": "017505600",
+      "note": "veganski sladoled",
+      "location": {
+        "latitude": 45.9660771,
+        "longitude": 14.2979168
+      }
     }
   ]
 }
