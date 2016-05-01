@@ -2,7 +2,7 @@
 /* global angular */
 
 angular.module('vegamap-app')
-.controller('RestaurantController', function($scope, $q, $state, $stateParams, restaurant, mapState, userData, DirectionsService) {
+.controller('RestaurantController', function($scope, $q, $state, $stateParams, $window, restaurant, mapState, userData, DirectionsService) {
   if (_.isUndefined(restaurant)) {
     $state.go('map.list');
     return;
@@ -53,6 +53,22 @@ angular.module('vegamap-app')
   $scope.$on('$destroy', function() {
     mapState.directionsRenderer.setDirections({routes: []});
   });
+
+  $scope.recenterMap = function() {
+    centerOnRestaurant(restaurant, mapState.gmap.getGMap);
+  }
+
+  $scope.openWeb = function(event) {
+    $window.open(restaurant.web);
+  }
+
+  $scope.sendMail = function(event) {
+    $window.open("mailto:" + restaurant.email);
+  }
+
+  $scope.call = function(event) {
+    $window.open("tel:" + restaurant.phone);
+  }
 
   $scope.showDirections = function() {
     var directionsDisplay = mapState.directionsRenderer;
