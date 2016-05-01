@@ -8,10 +8,13 @@
   <md-list>
     <md-list-item class="md-3-line" ng-repeat="restaurant in restaurants" ng-click="select(restaurant)">
       <img ng-src="http://res-3.cloudinary.com/demo/image/upload/h_40,w_40/pasta.jpg" class="md-avatar" alt="photo" />
-      <div class="md-list-item-text" layout="column">
-        <h3>{{ restaurant.name }}</h3>
-        <p>{{ restaurant.note }}</p>
-        <p>{{ restaurant.address }}</p>
+      <div layout="row" flex>
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ restaurant.name }}</h3>
+          <p>{{ restaurant.note }}</p>
+          <p>{{ restaurant.address }}</p>
+        </div>
+        <span style="margin:auto" ng-if="restaurant.temp.distance">{{ restaurant.temp.distance / 1000 | number: 1 }} km</span>
       </div>
       <md-divider inset></md-divider>
     </md-list-item>

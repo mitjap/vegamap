@@ -59,14 +59,8 @@ angular.module('vegamap-app')
       }],
       travelMode: google.maps.TravelMode.DRIVING,
     }, function(response, status) {
-      console.log('data', response.rows[0].elements[0]);
       defered.resolve(response.rows[0].elements[0]);
     });
-
-    defered.promise.then(function() {
-      console.log('after', defered.promise);
-      console.log('after', defered.promise.$$v);
-    })
 
     return defered.promise;
   }
