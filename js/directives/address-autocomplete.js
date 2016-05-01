@@ -4,7 +4,7 @@ angular.module('vegamap-app')
     restrict: 'E',
     templateUrl: './js/directives/address-autocomplete.html',
     scope: {},
-    controller: function($scope, $q, mapState, userData) {
+    controller: function($scope, $q, $window, mapState, userData) {
       var autocompleteService = new google.maps.places.AutocompleteService();
       var placesService = new google.maps.places.PlacesService(mapState.gmap.getGMap());
 
@@ -45,6 +45,8 @@ angular.module('vegamap-app')
             ) / 4) : 50,
             description: data.formatted_address
           });
+
+          $window.ga && $window.ga('send', 'event', 'location', 'location_manual');
         });
       }
 

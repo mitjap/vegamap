@@ -2,7 +2,7 @@
 /* global angular */
 
 angular.module('vegamap-app')
-.controller('MapController', function($scope, $state, $q, $mdToast, dataProvider,
+.controller('MapController', function($scope, $state, $q, $window, $mdToast, dataProvider,
     mapState, userData, geolocation, GeocodingService) {
   $scope.state = mapState;
   $scope.fit = true;
@@ -18,6 +18,8 @@ angular.module('vegamap-app')
 
   $scope.markerClick = function(marker, event, restaurant) {
     $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
+
+    $window.ga && $window.ga('send', 'event', 'list', 'navigate_marker');
   };
 
   $scope.data = [];
@@ -63,8 +65,11 @@ angular.module('vegamap-app')
       mapState.center = angular.copy(userData.getLocation());
       $scope.zoom = 5;
     })
+    .then(function() {
+      $window.ga && $window.ga('send', 'event', 'location', 'location_approved');
+    })
     .catch(function() {
-      // TODO: log or something
+      $window.ga && $window.ga('send', 'event', 'location', 'location_denied');
     });
   }
 })

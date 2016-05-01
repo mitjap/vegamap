@@ -56,18 +56,26 @@ angular.module('vegamap-app')
 
   $scope.recenterMap = function() {
     centerOnRestaurant(restaurant, mapState.gmap.getGMap);
+
+    $window.ga && $window.ga('send', 'event', 'restaurant', 'recenter');
   }
 
   $scope.openWeb = function(event) {
     $window.open(restaurant.web);
+
+    $window.ga && $window.ga('send', 'event', 'restaurant', 'open_web');
   }
 
   $scope.sendMail = function(event) {
     $window.open("mailto:" + restaurant.email);
+
+    $window.ga && $window.ga('send', 'event', 'restaurant', 'send_mail');
   }
 
   $scope.call = function(event) {
     $window.open("tel:" + restaurant.phone);
+
+    $window.ga && $window.ga('send', 'event', 'restaurant', 'call');
   }
 
   $scope.showDirections = function() {
@@ -91,6 +99,8 @@ angular.module('vegamap-app')
         directionsDisplay.setDirections(directions);
       });
     }
+
+    $window.ga && $window.ga('send', 'event', 'restaurant', 'directions');
   };
 
   function getEta(location) {
@@ -111,22 +121,4 @@ angular.module('vegamap-app')
       $scope.eta = response.rows[0].elements[0];
     });
   }
-
-  /*
-  if (userData.location.accuracy) {
-    service.getDistanceMatrix({
-      origins: [{
-        lat: userData.location.latitude,
-        lng: userData.location.longitude
-      }],
-      destinations: [{
-        lat: restaurant.location.latitude,
-        lng: restaurant.location.longitude
-      }],
-      travelMode: google.maps.TravelMode.DRIVING,
-    }, function(response, status) {
-      console.log('data', response);
-    });
-  }
-  */
 })

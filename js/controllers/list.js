@@ -2,7 +2,7 @@
 /* global angular */
 
 angular.module('vegamap-app')
-.controller('ListController', function($scope, $state, dataProvider, mapState, userData) {
+.controller('ListController', function($scope, $state, $window, dataProvider, mapState, userData) {
   dataProvider.getRestaurants(userData.getLocation()).then(function(data) {
     $scope.restaurants = data;
   });
@@ -15,5 +15,7 @@ angular.module('vegamap-app')
 
   $scope.select = function(restaurant) {
     $state.go('map.restaurant', { restaurantSlug: restaurant.slug });
+
+    $window.ga && $window.ga('send', 'event', 'list', 'navigate_listitem');
   }
 })
