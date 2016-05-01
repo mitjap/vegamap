@@ -48,12 +48,12 @@
           <p>Email</p>
         </div>
       </md-list-item>
-      <md-list-item class="md-2-line" ng-click="showDirections()">
+      <md-list-item class="md-2-line" ng-click="showDirections()" ng-if="eta">
          <md-icon class="material-icons step md-avatar-icon">
           access_time
         </md-icon>
-        <div class="md-list-item-text" ng-class="md-offset" ng-init="eta = getEta(restaurant.location)">
-          <h3>{{ eta.$$state.value.duration.text }} / {{ eta.$$state.value.distance.text }}</h3>
+        <div class="md-list-item-text" ng-class="md-offset">
+          <h3>{{ eta.duration.text }} / {{ eta.distance.text }}</h3>
           <p>ETA</p>
         </div>
         <md-icon aria-label="Navigate">directions</md-icon>

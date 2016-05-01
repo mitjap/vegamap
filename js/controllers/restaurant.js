@@ -21,6 +21,14 @@ angular.module('vegamap-app')
     }
   }
 
+  if (userData.hasLocation()) {
+    getEta(userData.getLocation());
+  }
+
+  userData.addListener($scope, function(location) {
+    getEta(location);
+  });
+
   var centerOnRestaurant = function(restaurant, gmap) {
     if (gmap) {
       gmap().panTo({
@@ -49,7 +57,7 @@ angular.module('vegamap-app')
   $scope.showDirections = function() {
     var directionsDisplay = mapState.directionsRenderer;
 
-    if (restaurant.temp.directions) {
+    if (restaurant.temp && restaurant.temp.directions) {
       directionsDisplay.setDirections(restaurant.temp.directions);
     } else {
       DirectionsService.route({
@@ -63,33 +71,29 @@ angular.module('vegamap-app')
         }
       })
       .then(function(directions) {
-        restaurant.temp.directions = directions;
+        if (restaurant.temp) restaurant.temp.directions = directions;
         directionsDisplay.setDirections(directions);
       });
     }
   };
 
-  $scope.getEta = function(location) {
-    var defered = $q.defer();
-
+  function getEta(location) {
     // TODO: check if userData.location is actually set!!!
 
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix({
       origins: [{
-        lat: userData.getLocation().latitude,
-        lng: userData.getLocation().longitude
-      }],
-      destinations: [{
         lat: location.latitude,
         lng: location.longitude
       }],
+      destinations: [{
+        lat: restaurant.location.latitude,
+        lng: restaurant.location.longitude
+      }],
       travelMode: google.maps.TravelMode.DRIVING,
     }, function(response, status) {
-      defered.resolve(response.rows[0].elements[0]);
+      $scope.eta = response.rows[0].elements[0];
     });
-
-    return defered.promise;
   }
 
   /*
