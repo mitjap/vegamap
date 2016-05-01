@@ -2,7 +2,7 @@
 /* global angular */
 
 angular.module('vegamap-app')
-.controller('RestaurantController', function($scope, $q, $state, $stateParams, restaurant, mapState, userData) {
+.controller('RestaurantController', function($scope, $q, $state, $stateParams, restaurant, mapState, userData, DirectionsService) {
   if (_.isUndefined(restaurant)) {
     $state.go('map.list');
     return;
@@ -41,6 +41,33 @@ angular.module('vegamap-app')
       }
     });
   }
+
+  $scope.$on('$destroy', function() {
+    mapState.directionsRenderer.setDirections({routes: []});
+  });
+
+  $scope.showDirections = function() {
+    var directionsDisplay = mapState.directionsRenderer;
+
+    if (restaurant.temp.directions) {
+      directionsDisplay.setDirections(restaurant.temp.directions);
+    } else {
+      DirectionsService.route({
+        origin: {
+          lat: userData.getLocation().latitude,
+          lng: userData.getLocation().longitude
+        },
+        destination: {
+          lat: restaurant.location.latitude,
+          lng: restaurant.location.longitude
+        }
+      })
+      .then(function(directions) {
+        restaurant.temp.directions = directions;
+        directionsDisplay.setDirections(directions);
+      });
+    }
+  };
 
   $scope.getEta = function(location) {
     var defered = $q.defer();

@@ -20,7 +20,7 @@
   </ui-gmap-street-view-panorama>
   <h3 class="md-toolbar-tools">{{ restaurant.note }}</h3>
     <md-list>
-      <md-list-item class="md-2-line">
+      <md-list-item class="md-2-line" ng-click="($event)">
          <md-icon class="material-icons step md-avatar-icon">
           phone
         </md-icon>
@@ -28,7 +28,7 @@
           <h3>{{ restaurant.phone }}</h3>
           <p>Mobile</p>
         </div>
-        <md-icon ng-click="($event)" aria-label="Navigate" class="md-secondary md-hue-3">call</md-icon>
+        <md-icon aria-label="Navigate">call</md-icon>
       </md-list-item>
       <md-list-item class="md-2-line">
          <md-icon class="material-icons step md-avatar-icon">
@@ -48,7 +48,7 @@
           <p>Email</p>
         </div>
       </md-list-item>
-      <md-list-item class="md-2-line">
+      <md-list-item class="md-2-line" ng-click="showDirections()">
          <md-icon class="material-icons step md-avatar-icon">
           access_time
         </md-icon>
@@ -56,7 +56,7 @@
           <h3>{{ eta.$$state.value.duration.text }} / {{ eta.$$state.value.distance.text }}</h3>
           <p>ETA</p>
         </div>
-        <md-icon ng-click="($event)" aria-label="Navigate" class="md-secondary md-hue-3">directions</md-icon>
+        <md-icon aria-label="Navigate">directions</md-icon>
       </md-list-item>
     </md-list>
 </md-content>
