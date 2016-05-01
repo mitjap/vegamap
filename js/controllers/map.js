@@ -61,7 +61,7 @@ angular.module('vegamap-app')
 
       $scope.fit = false;
       mapState.center = angular.copy(userData.getLocation());
-      $scope.zoom = 18;
+      $scope.zoom = 5;
     })
     .catch(function() {
       // TODO: log or something

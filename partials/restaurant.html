@@ -1,5 +1,4 @@
-<!--h2>List of vegan restaurants</h2-->
-<md-toolbar>
+<md-toolbar style="flex-shrink: 0">
   <h2 class="md-toolbar-tools">VEGAMAP</h2>
   <h2 class="md-toolbar-tools">
     <md-button ui-sref="map.list" class="md-icon-button" aria-label="Return">
@@ -20,7 +19,16 @@
   </ui-gmap-street-view-panorama>
   <h3 class="md-toolbar-tools">{{ restaurant.note }}</h3>
     <md-list>
-      <md-list-item class="md-2-line" ng-click="($event)">
+      <md-list-item class="md-2-line" ng-click="recenterMap()">
+         <md-icon class="material-icons step md-avatar-icon">
+          place
+        </md-icon>
+        <div class="md-list-item-text" ng-class="md-offset">
+          <h3>{{ restaurant.address }}</h3>
+          <p>Address</p>
+        </div>
+      </md-list-item>
+      <md-list-item class="md-2-line" ng-click="call()" ng-if="restaurant.phone">
          <md-icon class="material-icons step md-avatar-icon">
           phone
         </md-icon>
@@ -30,16 +38,7 @@
         </div>
         <md-icon aria-label="Navigate">call</md-icon>
       </md-list-item>
-      <md-list-item class="md-2-line">
-         <md-icon class="material-icons step md-avatar-icon">
-          place
-        </md-icon>
-        <div class="md-list-item-text" ng-class="md-offset">
-          <h3>{{ restaurant.address }}</h3>
-          <p>Address</p>
-        </div>
-      </md-list-item>
-      <md-list-item class="md-2-line">
+      <md-list-item class="md-2-line" ng-if="restaurant.email" ng-click="sendMail()">
          <md-icon class="material-icons step md-avatar-icon">
           email
         </md-icon>
@@ -47,6 +46,16 @@
           <h3>{{ restaurant.email }}</h3>
           <p>Email</p>
         </div>
+      </md-list-item>
+      <md-list-item class="md-2-line md-clickable" ng-if="restaurant.web" ng-click="openWeb()">
+         <md-icon class="material-icons step md-avatar-icon">
+          public
+        </md-icon>
+        <div class="md-list-item-text" ng-class="md-offset">
+          <h3>{{ restaurant.web }}</h3>
+          <p>Web</p>
+        </div>
+        <md-icon aria-label="Navigate">launch</md-icon>
       </md-list-item>
       <md-list-item class="md-2-line" ng-click="showDirections()" ng-if="eta">
          <md-icon class="material-icons step md-avatar-icon">

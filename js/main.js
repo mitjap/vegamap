@@ -50,8 +50,18 @@ var app = angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogl
 .config(function($mdThemingProvider) {
   $mdThemingProvider
       .theme('default')
-      .primaryPalette('blue')
-      .accentPalette('orange');
+      .primaryPalette('pink', {
+        'default': '400',
+        'hue-1': '100',
+        'hue-2': '400',
+        'hue-3': '800'
+      })
+      .accentPalette('deep-orange');
+})
+
+// config gestures
+.config(function( $mdGestureProvider ) {
+  $mdGestureProvider.skipClickHijack();
 })
 
 /// config google maps
@@ -161,8 +171,6 @@ app.service('userData', UserDataService)
 
       // add temporary distance from location field
       _.each(restaurants, function(restaurant) {
-        console.log(location, restaurant.temp);
-        console.log(restaurant.temp && DistanceService.distance(location, restaurant.temp.location));
         if (!restaurant.temp || DistanceService.distance(location, restaurant.temp.location) > 1) {
           restaurant.temp = {
             location: location,
