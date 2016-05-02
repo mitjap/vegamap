@@ -11,16 +11,17 @@
     <link rel="stylesheet" href="js/vendor/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body ng-app="vegamap-app">
-    <div id="container" layout ui-view="map" class="fullHeight"></div>
+  <body ng-app="vegamap-app" layout="row">
+    <div id="container" layout ui-view="map" flex></div>
 
+    <script src="js/vendor/lodash/lodash.min.js"></script>
     <script src="js/vendor/angular/angular.min.js"></script>
     <script src="js/vendor/angular-aria/angular-aria.min.js"></script>
     <script src="js/vendor/angular-animate/angular-animate.min.js"></script>
     <script src="js/vendor/angular-material/angular-material.min.js"></script>
     <script src="js/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="js/vendor/lodash/lodash.js"></script>
     <script src="js/vendor/angular-google-maps/dist/angular-google-maps.min.js"></script>
+    <script src="js/vendor/angular-cache/dist/angular-cache.min.js"></script>
     <script src="js/vendor/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/directives/address-autocomplete.js"></script>

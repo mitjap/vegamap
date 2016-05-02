@@ -71,5 +71,7 @@ angular.module('vegamap-app')
     .catch(function() {
       $window.ga && $window.ga('send', 'event', 'location', 'location_denied');
     });
+  } else {
+      $window.ga && $window.ga('send', 'event', 'location', 'location_cached');
   }
 })
