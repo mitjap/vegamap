@@ -699,22 +699,6 @@
       }
     },
     {
-      "id": 48,
-      "type": 2,
-      "name": "Leteči krožnik",
-      "slug": "Leteci_kroznik",
-      "address": "Bratovševa ploščad 1, 1000 Ljubljana, Slovenia",
-      "email": "info@letecikroznik.si",
-      "web": "http://www.letecikroznik.si",
-      "facebook": "https://www.facebook.com/letecikroznikdostava",
-      "phone": "040195484",
-      "note": "Dostava hrane po Ljubljani: enolončnice, wrapi, solate, pizze, sladice in pijače (od ponedeljka do sobote).",
-      "location": {
-        "latitude": 46.0889099,
-        "longitude": 14.5126644
-      }
-    },
-    {
       "id": 49,
       "type": 0,
       "name": "Loving Hut Celje",
@@ -1526,7 +1510,8 @@
       "slug": "Zvezda_kavarna_in_slascicarna",
       "address": "Ljubljana, Slovenia",
       "web": "http://www.zvezdaljubljana.si/",
-      "facebook": "https://www.facebook.com/pages/Kavarna-in-sla%C5%A1%C4%8Di%C4%8Darna-Zvezda-BTC",
+      "email": "info@zvezdaljubljana.si",
+      "facebook": "https://www.facebook.com/pages/Kavarna-in-sla%C5%A1%C4%8Di%C4%8Darna-Zvezda-BTC/159057314152779",
       "phone": "015852095",
       "note": "veganska torta, presne torte, rastlinsko mleko, veganski sladoled",
       "location": {
@@ -1540,7 +1525,7 @@
       "name": "Argos cafe",
       "slug": "Argos_cafe",
       "address": "Cankarjev trg 6, 1360 Vrhnika, Slovenia",
-	  "email": "info@mantova.si",
+      "email": "info@mantova.si",
       "web": "http://www.mantova.si/",
       "facebook": "https://www.facebook.com/HOTEL-MANTOVA-Vrhnika-207768202485/",
       "phone": "017505600",
@@ -1548,6 +1533,52 @@
       "location": {
         "latitude": 45.9660771,
         "longitude": 14.2979168
+      }
+    },
+    {
+      "id": 108,
+      "type": 2,
+      "name": "Sladki Toni in Pri jezu",
+      "slug": "Sladki_Toni_in_Pri_jezu",
+      "address": "Prežihova ulica 9, 3000 Celje, Slovenia",
+      "email": "info@sladkitoni.si",
+      "web": "http://www.sladkitoni.si/",
+      "facebook": "https://www.facebook.com/Sla%C5%A1%C4%8Di%C4%8Darstvo-Sladki-Toni-in-Pri-Jezu-774160552660831/",
+      "phone": "041756793",
+      "note": "kave z rastlinskim mlekom",
+      "location": {
+        "latitude": 46.230273,
+        "longitude": 15.255609
+      }
+    },
+    {
+      "id": 109,
+      "type": 2,
+      "name": "Kavarna Oaza",
+      "slug": "Kavarna_Oaza",
+      "address": "Glavni trg 13, 3000 Celje, Slovenia",
+      "email": "info@kavarnaoaza.si",
+      "web": "http://kavarnaoaza.si",
+      "facebook": "https://www.facebook.com/KavarnaOaza/",
+      "phone": "040337995",
+      "note": "kave z rastlinskim mlekom",
+      "location": {
+        "latitude": 46.227695,
+        "longitude": 15.264181
+      }
+    },
+    {
+      "id": 110,
+      "type": 2,
+      "name": "Cafe Central Domžale",
+      "slug": "Cafe_Central_Domzale",
+      "address": "Ljubljanska cesta 82, 1230 Domžale, Slovenia",
+      "facebook": "https://www.facebook.com/Cafe-Central-Dom%C5%BEale-609613709133430/",
+      "phone": "070687027",
+      "note": "kave z rastlinskim mlekom",
+      "location": {
+        "latitude": 46.140178,
+        "longitude": 14.593764
       }
     }
   ]
