@@ -1,7 +1,7 @@
 /* global _ */
 /* global angular */
 
-var app = angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', 'geolocation'])
+var app = angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogle-maps', 'geolocation', 'angular-cache'])
 
 // config routes
 .config(function($stateProvider, $urlRouterProvider) {
@@ -72,6 +72,11 @@ var app = angular.module('vegamap-app', ['ui.router', 'ngMaterial', 'uiGmapgoogl
   });
 })
 
+/// config cache
+.config(function(CacheFactoryProvider) {
+  angular.extend(CacheFactoryProvider.defaults, { storageMode: 'localStorage' });
+})
+
 /// RUN!
 .run(function($rootScope, $location, $window){
   $rootScope.$on('$stateChangeSuccess', function(event) {
@@ -108,16 +113,28 @@ NotificationService.prototype.notifyListeners = function(data, clone) {
 /////////////////////////
 /// service: userData ///
 /////////////////////////
-function UserDataService() {
+function UserDataService(CacheFactory) {
   NotificationService.call(this);
 
-  this.location = undefined;
+  if (!CacheFactory.get(this.constructor.name)) {
+    CacheFactory.createCache(this.constructor.name);
+  }
+
+  this.cache = CacheFactory.get(this.constructor.name);
+
+  // restore data from cache
+  if (this.cache.get('location')) {
+    this.location = JSON.parse(this.cache.get('location'));
+  } else {
+    this.location = undefined;
+  }
 }
 
 UserDataService.prototype = Object.create(NotificationService.prototype);
 UserDataService.prototype.constructor = UserDataService;
 
 UserDataService.prototype.setLocation = function(loc) {
+  this.cache.put('location', JSON.stringify(loc));
   this.location = angular.copy(loc, this.location);
 
   this.notifyListeners(this.location, true);
