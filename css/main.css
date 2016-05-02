@@ -14,7 +14,6 @@ html {
 }
 
 body {
-  /*font: 16px/26px 'Comic Sans', Arial;*/
   font-family: 'Roboto';
 }
 
@@ -32,10 +31,6 @@ html, body
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.fullHeight {
-  height: 100%;
 }
 
 .angular-google-map,
