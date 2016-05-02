@@ -1,9 +1,23 @@
 <section layout="row" flex>
-  <md-sidenav
-      flex="100" flex-gt-sm="50" flex-gt-md="40" flex-gt-lg="30" md-component-id="left" md-is-locked-open="true"
-      ui-view="sidebar" layout="column">
-  </md-sidenav>
-  <md-content flex layout="column" layout-align="stretch">
+  <section layout="column" flex="100" flex-gt-sm="50" flex-gt-md="40" flex-gt-lg="30">
+    <md-toolbar>
+      <h2 class="md-toolbar-tools">VEGAMAP</h2>
+    </md-toolbar>
+
+    <!-- ACTUAL CONTENT -->
+    <div layout="column" flex layout-fill ui-view="sidebar"></div>
+    <!-- END ACTUAL CONTENT -->
+
+    <div>
+      <md-toolbar>
+        <h2 class="md-toolbar-tools">
+          <span>Your location</span>
+        </h2>
+      </md-toolbar>
+      <address-autocomplete></address-autocomplete>
+    </div>
+  </section>
+  <section flex layout="column" layout-align="stretch">
     <ui-gmap-google-map
       center="state.center"
       zoom="state.zoom"
@@ -28,5 +42,5 @@
         visible='true'>
       </ui-gmap-circle>
     </ui-gmap-google-map>
-  </md-content>
+  </section>
 </section>

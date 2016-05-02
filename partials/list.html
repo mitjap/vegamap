@@ -1,38 +1,23 @@
-<div layout="column" flex layout-fill>
-  <md-toolbar style="flex-shrink: 0">
-    <h2 class="md-toolbar-tools">VEGAMAP</h2>
-    <h2 class="md-toolbar-tools">
-      <span>List of vegan restaurants</span>
-    </h2>
-  </md-toolbar>
-  <md-content flex layout-fill layout="column">
-    <md-list>
-      <md-list-item class="md-3-line" ng-repeat="restaurant in restaurants" ng-click="select(restaurant)">
-        <md-icon class="material-icons step md-36 md-primary md-hue-3" ng-if="restaurant.type == 0">sentiment_very_satisfied</md-icon>
-        <md-icon class="material-icons step md-36 md-primary md-hue-2" ng-if="restaurant.type == 1">sentiment_very_satisfied</md-icon>
-        <md-icon class="material-icons step md-36 md-accent md-hue-1" ng-if="restaurant.type == 2">sentiment_satisfied</md-icon>
-        <div layout="row" flex>
-          <div class="md-list-item-text" layout="column">
-            <h3>{{ restaurant.name }}</h3>
-            <p>{{ restaurant.note }}</p>
-            <p>{{ restaurant.address }}</p>
-          </div>
-          <span style="margin:auto" ng-if="restaurant.temp.distance">{{ restaurant.temp.distance / 1000 | number: 1 }} km</span>
+<md-toolbar>
+  <h3 class="md-toolbar-tools">
+    <span>List of vegan places</span>
+  </h3>
+</md-toolbar>
+<md-content flex layout-fill layout="column">
+  <md-list>
+    <md-list-item class="md-3-line" ng-repeat="restaurant in restaurants" ng-click="select(restaurant)">
+      <md-icon class="material-icons step md-36 md-primary md-hue-3" ng-if="restaurant.type == 0">sentiment_very_satisfied</md-icon>
+      <md-icon class="material-icons step md-36 md-primary md-hue-2" ng-if="restaurant.type == 1">sentiment_very_satisfied</md-icon>
+      <md-icon class="material-icons step md-36 md-accent md-hue-1" ng-if="restaurant.type == 2">sentiment_satisfied</md-icon>
+      <div layout="row" flex>
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ restaurant.name }}</h3>
+          <p>{{ restaurant.note }}</p>
+          <p>{{ restaurant.address }}</p>
         </div>
-        <md-divider></md-divider>
-      </md-list-item>
-    </md-list>
-  </md-content>
-</div>
-<div>
-  <md-toolbar>
-    <h2 class="md-toolbar-tools">
-      <span>Your location</span>
-    </h2>
-  </md-toolbar>
-  <md-content>
-    <div style="overflow:hidden;">
-      <address-autocomplete></address-autocomplete>
-    </div>
-  </md-content>
-</div>
+        <span style="margin:auto" ng-if="restaurant.temp.distance">{{ restaurant.temp.distance / 1000 | number: 1 }} km</span>
+      </div>
+      <md-divider></md-divider>
+    </md-list-item>
+  </md-list>
+</md-content>
