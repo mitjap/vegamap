@@ -5,7 +5,7 @@
       <span>List of vegan restaurants</span>
     </h2>
   </md-toolbar>
-  <md-content flex layout-fill layout="column" md-theme="altTheme">
+  <md-content flex layout-fill layout="column">
     <md-list>
       <md-list-item class="md-3-line" ng-repeat="restaurant in restaurants" ng-click="select(restaurant)">
         <md-icon class="material-icons step md-36 md-primary md-hue-3" ng-if="restaurant.type == 0">sentiment_very_satisfied</md-icon>
